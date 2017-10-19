@@ -5,9 +5,9 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.xaoxuu.AXCameraKitDemo</string>
+	<string>com.xaoxuu.AXCameraKit</string>
 	<key>CFBundleName</key>
-	<string>AXCameraKitDemo Documentation</string>
+	<string>AXCameraKit Documentation</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -18,7 +18,7 @@
 	<key>DocSetFallbackURL</key>
 	<string>http://xaoxuu.com/xaoxuu</string>
 	<key>DocSetFeedName</key>
-	<string>AXCameraKitDemo Documentation</string>
+	<string>AXCameraKit Documentation</string>
 	<key>DocSetFeedURL</key>
 	<string>http://xaoxuu.com/xaoxuu/xaoxuu.atom</string>
 	<key>DocSetMinimumXcodeVersion</key>

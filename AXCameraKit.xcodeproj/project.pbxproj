@@ -225,7 +225,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CD755EEE1F9765260029D024 /* Build configuration list for PBXProject "AXCameraKitDemo" */;
+			buildConfigurationList = CD755EEE1F9765260029D024 /* Build configuration list for PBXProject "AXCameraKit" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -535,7 +535,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CD755EEE1F9765260029D024 /* Build configuration list for PBXProject "AXCameraKitDemo" */ = {
+		CD755EEE1F9765260029D024 /* Build configuration list for PBXProject "AXCameraKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CD755F071F9765260029D024 /* Debug */,
