@@ -49,7 +49,12 @@ static const void *AXCameraExtensionOverlayViewKey = &AXCameraExtensionOverlayVi
  加载相机，可以提前异步加载
  */
 - (void)loadCameraVC{
+    // @xaoxuu: 已经初始化
     if (self.imagePicker) {
+        return;
+    }
+    // @xaoxuu: 没有后置摄像头
+    if (![UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear]) {
         return;
     }
     self.overlayView = [self setupOverlayView];
@@ -111,7 +116,7 @@ static const void *AXCameraExtensionOverlayViewKey = &AXCameraExtensionOverlayVi
  @param completion 完成回调
  */
 - (void)presentCameraVC:(void (^)(void))completion{
-    if (!isActive) {
+    if (!isActive && self.imagePicker) {
         isActive = YES;
         [self presentViewController:self.imagePicker animated:YES completion:^{
             if (completion) {
@@ -240,6 +245,15 @@ static const void *AXCameraExtensionOverlayViewKey = &AXCameraExtensionOverlayVi
     [overlayView.dismiss addTarget:self action:@selector(overlayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [overlayView.shutter addTarget:self action:@selector(overlayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [overlayView.switchCamera addTarget:self action:@selector(overlayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    // @xaoxuu: 有前置摄像头
+    if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront]) {
+        overlayView.switchCamera.userInteractionEnabled = YES;
+        overlayView.switchCamera.alpha = 1;
+    } else {
+        overlayView.switchCamera.userInteractionEnabled = NO;
+        overlayView.switchCamera.alpha = 0.5;
+    }
+    
     CGFloat margin = 16;
     overlayView.dismiss.imageEdgeInsets = UIEdgeInsetsMake(margin, margin, margin, margin);
     margin = 18;

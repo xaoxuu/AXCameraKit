@@ -13,7 +13,7 @@ static CGFloat normalButtonSize = 64.0f;
 
 static NSString *moduleName = @"AXCameraKit";
 typedef void(^BlockType)(void);
-static NSInteger actionIndex = CameraOverlayButtonCancel;
+static NSInteger actionIndex = CameraOverlayButtonDismiss;
 static NSString *stringFromInteger(NSInteger index){
     return [NSString stringWithFormat:@"%ld", (long)index];
 }
@@ -37,7 +37,7 @@ static NSString *stringFromInteger(NSInteger index){
 }
 
 - (void)_init{
-    actionIndex = CameraOverlayButtonCancel;
+    actionIndex = CameraOverlayButtonDismiss;
     self.backgroundColor = [UIColor blackColor];
     UIButton *dismiss = [self buttonWithImageName:@"ax_camera_dismiss" highlighted:NO action:nil];
     UIButton *shutter = [self buttonWithImageName:@"ax_camera_shutter" highlighted:YES action:nil];
