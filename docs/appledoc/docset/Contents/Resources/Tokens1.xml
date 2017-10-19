@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AXCameraOverlayView.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AXCameraOverlayView</TokenIdentifier>
+			<Abstract type="html">相机的overlay图层</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setDismiss:</TokenIdentifier>
+			<Abstract type="html">dismiss按钮，用于退出相机页面</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIButton *dismiss</Declaration>
+			
+			
+			<Anchor>//api/name/dismiss</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/dismiss</TokenIdentifier>
+			<Abstract type="html">dismiss按钮，用于退出相机页面</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIButton *dismiss</Declaration>
+			
+			
+			<Anchor>//api/name/dismiss</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/dismiss</TokenIdentifier>
+			<Abstract type="html">dismiss按钮，用于退出相机页面</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIButton *dismiss</Declaration>
+			
+			
+			<Anchor>//api/name/dismiss</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setShutter:</TokenIdentifier>
+			<Abstract type="html">快门按钮，用于拍照</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIButton *shutter</Declaration>
+			
+			
+			<Anchor>//api/name/shutter</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/shutter</TokenIdentifier>
+			<Abstract type="html">快门按钮，用于拍照</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIButton *shutter</Declaration>
+			
+			
+			<Anchor>//api/name/shutter</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/shutter</TokenIdentifier>
+			<Abstract type="html">快门按钮，用于拍照</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIButton *shutter</Declaration>
+			
+			
+			<Anchor>//api/name/shutter</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setSwitchCamera:</TokenIdentifier>
+			<Abstract type="html">切换前后摄像头按钮</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIButton *switchCamera</Declaration>
+			
+			
+			<Anchor>//api/name/switchCamera</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/switchCamera</TokenIdentifier>
+			<Abstract type="html">切换前后摄像头按钮</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIButton *switchCamera</Declaration>
+			
+			
+			<Anchor>//api/name/switchCamera</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/switchCamera</TokenIdentifier>
+			<Abstract type="html">切换前后摄像头按钮</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIButton *switchCamera</Declaration>
+			
+			
+			<Anchor>//api/name/switchCamera</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

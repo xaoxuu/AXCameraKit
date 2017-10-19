@@ -6,6 +6,20 @@
 	objectVersion = 48;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		CD8C90F11F98CC5C0033C6B8 /* Docs */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = CD8C90F41F98CC5C0033C6B8 /* Build configuration list for PBXAggregateTarget "Docs" */;
+			buildPhases = (
+				CD8C90F51F98CC620033C6B8 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Docs;
+			productName = Docs;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		CD293F2B1F9795EA00DB4372 /* AXCameraKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CD755F1E1F9765C10029D024 /* AXCameraKit.bundle */; };
 		CD755EF81F9765260029D024 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD755EF71F9765260029D024 /* AppDelegate.m */; };
@@ -205,6 +219,10 @@
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 					};
+					CD8C90F11F98CC5C0033C6B8 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = CD755EEE1F9765260029D024 /* Build configuration list for PBXProject "AXCameraKitDemo" */;
@@ -222,6 +240,7 @@
 			targets = (
 				CD755EF21F9765260029D024 /* AXCameraKitDemo */,
 				CD755F101F9765690029D024 /* AXCameraKit */,
+				CD8C90F11F98CC5C0033C6B8 /* Docs */,
 			);
 		};
 /* End PBXProject section */
@@ -246,6 +265,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CD8C90F51F98CC620033C6B8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"xaoxuu\";\ncompanyID=\"com.xaoxuu\";\ncompanyURL=\"http://xaoxuu.com\";\ntarget=\"iphoneos\";\n#target=\"macosx\";\noutputPath=\"${SRCROOT}/docs/appledoc\";\n# End constants\n/usr/local/bin/appledoc --project-name \"${PROJECT_NAME}\" --project-company \"${company}\" --company-id \"${companyID}\" --docset-atom-filename \"${company}.atom\" --docset-feed-url \"${companyURL}/${company}/%DOCSETATOMFILENAME\" --docset-package-url \"${companyURL}/${company}/%DOCSETPACKAGEFILENAME\" --docset-fallback-url \"${companyURL}/${company}\" --output \"${outputPath}\" --publish-docset --docset-platform-family \"${target}\" --logformat xcode --keep-intermediate-files --no-repeat-first-par --no-warn-invalid-crossref --exit-threshold 2 \"${PROJECT_DIR}/AXCameraKit\"\n\nopen \"${SRCROOT}/docs/appledoc/html/index.html\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CD755EEF1F9765260029D024 /* Sources */ = {
@@ -479,6 +514,24 @@
 			};
 			name = Release;
 		};
+		CD8C90F21F98CC5C0033C6B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6C36HX8DP4;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CD8C90F31F98CC5C0033C6B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6C36HX8DP4;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -505,6 +558,15 @@
 			buildConfigurations = (
 				CD755F1B1F9765690029D024 /* Debug */,
 				CD755F1C1F9765690029D024 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD8C90F41F98CC5C0033C6B8 /* Build configuration list for PBXAggregateTarget "Docs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD8C90F21F98CC5C0033C6B8 /* Debug */,
+				CD8C90F31F98CC5C0033C6B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

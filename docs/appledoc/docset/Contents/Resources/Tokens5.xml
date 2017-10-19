@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/CameraOverlayButton.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/CameraOverlayButton</TokenIdentifier>
+			<Abstract type="html">根据按钮的tag判断是哪个按钮</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+            
+			
+			<NodeRef refid="5"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/CameraOverlayButtonUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>CameraOverlayButtonUnknown</Declaration>
+            
+            <DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+            
+            <NodeRef refid="5"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/CameraOverlayButtonDismiss</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>CameraOverlayButtonDismiss</Declaration>
+            
+            <DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+            
+            <NodeRef refid="5"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/CameraOverlayButtonShutter</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>CameraOverlayButtonShutter</Declaration>
+            
+            <DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+            
+            <NodeRef refid="5"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/CameraOverlayButtonSwitch</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>CameraOverlayButtonSwitch</Declaration>
+            
+            <DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+            
+            <NodeRef refid="5"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

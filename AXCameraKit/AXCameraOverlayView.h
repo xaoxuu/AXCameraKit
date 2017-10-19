@@ -12,15 +12,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  根据按钮的tag判断是哪个按钮
 
- - CameraOverlayButtonUnknown: 未知
- - CameraOverlayButtonCancel: 取消按钮，用于dismiss
- - CameraOverlayButtonOk: 快门按钮
- - CameraOverlayButtonSwitch: 切换前后相机
+ - CameraOverlayButtonUnknown: 未知按钮
+ - CameraOverlayButtonDismiss: dismiss按钮
+ - CameraOverlayButtonShutter: 快门按钮
+ - CameraOverlayButtonSwitch: 切换前后摄像头按钮
  */
 typedef NS_ENUM(NSUInteger, CameraOverlayButton) {
     CameraOverlayButtonUnknown = 0,
-    CameraOverlayButtonCancel,
-    CameraOverlayButtonOk,
+    CameraOverlayButtonDismiss,
+    CameraOverlayButtonShutter,
     CameraOverlayButtonSwitch,
 };
 
@@ -37,12 +37,12 @@ typedef NS_ENUM(NSUInteger, CameraOverlayButton) {
 @property (strong, nonatomic) UIButton *dismiss;
 
 /**
- shutter快门按钮，用于拍照
+ 快门按钮，用于拍照
  */
 @property (strong, nonatomic) UIButton *shutter;
 
 /**
- 切换前后镜头按钮
+ 切换前后摄像头按钮
  */
 @property (strong, nonatomic) UIButton *switchCamera;
 

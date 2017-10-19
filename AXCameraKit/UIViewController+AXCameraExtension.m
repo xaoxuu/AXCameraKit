@@ -215,9 +215,9 @@ static const void *AXCameraExtensionOverlayViewKey = &AXCameraExtensionOverlayVi
 #pragma mark - button action
 
 - (void)overlayButtonTapped:(UIButton *)sender{
-    if (sender.tag == CameraOverlayButtonCancel) {
+    if (sender.tag == CameraOverlayButtonDismiss) {
         [self dismissCameraVC:nil];
-    } else if (sender.tag == CameraOverlayButtonOk) {
+    } else if (sender.tag == CameraOverlayButtonShutter) {
         [self takePicture];
     } else if (sender.tag == CameraOverlayButtonSwitch) {
         if (self.imagePicker.cameraDevice == UIImagePickerControllerCameraDeviceRear) {

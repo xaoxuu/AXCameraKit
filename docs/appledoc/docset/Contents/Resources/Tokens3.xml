@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/UIViewController+AXCameraExtension.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/UIViewController(AXCameraExtension)</TokenIdentifier>
+			<Abstract type="html">需要在哪个页面弹出相机，就在哪个页面导入此分类。
+注意：不要放到全局头文件中。</Abstract>
+			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
+            
+			
+			<NodeRef refid="3"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UIViewController/overlayView</TokenIdentifier>
+			<Abstract type="html">overlay view</Abstract>
+			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
+			
+			<Declaration>- (AXCameraOverlayView *)overlayView</Declaration>
+			
+			
+			<Anchor>//api/name/overlayView</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UIViewController/loadCameraVC</TokenIdentifier>
+			<Abstract type="html">加载相机，可以提前异步加载</Abstract>
+			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
+			
+			<Declaration>- (void)loadCameraVC</Declaration>
+			
+			
+			<Anchor>//api/name/loadCameraVC</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UIViewController/presentCameraVC:</TokenIdentifier>
+			<Abstract type="html">显示相机页面</Abstract>
+			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
+			
+			<Declaration>- (void)presentCameraVC:(void ( ^ ) ( void ))completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">完成回调</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/presentCameraVC:</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UIViewController/dismissCameraVC:</TokenIdentifier>
+			<Abstract type="html">退出相机页面</Abstract>
+			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
+			
+			<Declaration>- (void)dismissCameraVC:(void ( ^ ) ( void ))completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">完成回调</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/dismissCameraVC:</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UIViewController/takePicture</TokenIdentifier>
+			<Abstract type="html">拍照</Abstract>
+			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
+			
+			<Declaration>- (void)takePicture</Declaration>
+			
+			
+			<Anchor>//api/name/takePicture</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

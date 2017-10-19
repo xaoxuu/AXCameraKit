@@ -18,17 +18,17 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 
 /**
- 相机页面present
+ 弹出相机页面的回调（present）
  */
 - (void)cameraDidPresented;
 
 /**
- 相机页面dismiss
+ 退出相机页面的回调（dismiss）
  */
 - (void)cameraDidDismissed;
 
 /**
- 拍照
+ 拍照完成的回调
 
  @param image 照片
  */
@@ -38,7 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- 需要在哪个页面弹出相机，就在哪个页面导入此分类，不要放到全局头文件中。
+ 需要在哪个页面弹出相机，就在哪个页面导入此分类。
+ 注意：不要放到全局头文件中。
  */
 @interface UIViewController (AXCameraExtension) <AXCameraKit>
 
@@ -50,12 +51,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- 加载相机，可以提前异步加载
+ 加载相机，可以根据需要提前异步加载
  */
 - (void)loadCameraVC;
 
 /**
- 显示相机页面
+ 弹出相机页面
 
  @param completion 完成回调
  */

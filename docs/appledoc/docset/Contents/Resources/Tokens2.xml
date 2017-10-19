@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/UIViewController+.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/UIViewController()</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>UIViewController+AXCameraExtension.m</DeclaredIn>
+            
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UIViewController/setImagePicker:</TokenIdentifier>
+			<Abstract type="html">image picker</Abstract>
+			<DeclaredIn>UIViewController+AXCameraExtension.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIImagePickerController *imagePicker</Declaration>
+			
+			
+			<Anchor>//api/name/imagePicker</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UIViewController/imagePicker</TokenIdentifier>
+			<Abstract type="html">image picker</Abstract>
+			<DeclaredIn>UIViewController+AXCameraExtension.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIImagePickerController *imagePicker</Declaration>
+			
+			
+			<Anchor>//api/name/imagePicker</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/UIViewController/imagePicker</TokenIdentifier>
+			<Abstract type="html">image picker</Abstract>
+			<DeclaredIn>UIViewController+AXCameraExtension.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIImagePickerController *imagePicker</Declaration>
+			
+			
+			<Anchor>//api/name/imagePicker</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

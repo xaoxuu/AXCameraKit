@@ -39,7 +39,7 @@ static NSString *stringFromInteger(NSInteger index){
 - (void)_init{
     actionIndex = CameraOverlayButtonCancel;
     self.backgroundColor = [UIColor blackColor];
-    UIButton *dismiss = [self buttonWithImageName:@"ax_camera_cancel" highlighted:NO action:nil];
+    UIButton *dismiss = [self buttonWithImageName:@"ax_camera_dismiss" highlighted:NO action:nil];
     UIButton *shutter = [self buttonWithImageName:@"ax_camera_shutter" highlighted:YES action:nil];
     UIButton *switchCamera = [self buttonWithImageName:@"ax_camera_switch" highlighted:NO action:nil];
     [self addSubview:dismiss];

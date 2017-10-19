@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/AXCameraKit.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/AXCameraKit</TokenIdentifier>
+			<Abstract type="html">相机代理，用于监听相机状态。无需手动设置代理。</Abstract>
+			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
+            
+			
+			<NodeRef refid="4"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AXCameraKit/cameraDidPresented</TokenIdentifier>
+			<Abstract type="html">弹出相机页面的回调（present）</Abstract>
+			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
+			
+			<Declaration>- (void)cameraDidPresented</Declaration>
+			
+			
+			<Anchor>//api/name/cameraDidPresented</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AXCameraKit/cameraDidDismissed</TokenIdentifier>
+			<Abstract type="html">退出相机页面的回调（dismiss）</Abstract>
+			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
+			
+			<Declaration>- (void)cameraDidDismissed</Declaration>
+			
+			
+			<Anchor>//api/name/cameraDidDismissed</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AXCameraKit/cameraDidTakePicture:</TokenIdentifier>
+			<Abstract type="html">拍照完成的回调</Abstract>
+			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
+			
+			<Declaration>- (void)cameraDidTakePicture:(UIImage *)image</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>image</Name>
+					<Abstract type="html">照片</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/cameraDidTakePicture:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>
