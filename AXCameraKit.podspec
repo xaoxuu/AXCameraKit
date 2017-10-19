@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
 
   s.name         = "AXCameraKit"
   s.version      = "0.0.1"
-  s.summary      = "这是一个综合型开发工具包，包含对系统类的功能扩展和一些常用控件的封装。"
+  s.summary      = "这是一个简单易用的相机模块。"
   s.homepage     = "http://xaoxuu.com"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "xaoxuu" => "xaoxuu@gmail.com" }
