@@ -1,6 +1,6 @@
 # AXCameraKit
 
-> 简单的相机模块
+> 这是一个简单的相机模块，此模块的目的在于方便管理多个项目，使多个定制项目共用一个模块极大提高了开发效率，降低维护成本。
 
 
 
@@ -9,10 +9,6 @@
 [![](https://img.shields.io/cocoapods/at/AXCameraKit.svg)](https://cocoapods.org/pods/AXCameraKit)
 
 
-
-### 
-
-此模块的目的在于方便管理多个项目，使多个定制项目共用一个模块极大提高了开发效率，降低维护成本。
 
 ## 安装
 
@@ -65,4 +61,3 @@ pod 'AXCameraKit'
     NSLog(@"dismiss");
 }
 ```
-
