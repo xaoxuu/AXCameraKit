@@ -237,9 +237,10 @@ static const void *AXCameraExtensionOverlayViewKey = &AXCameraExtensionOverlayVi
 #pragma mark - priv
 
 - (AXCameraOverlayView *)setupOverlayView{
-    CGFloat width = self.view.bounds.size.width;
-    CGFloat height = self.view.bounds.size.height - width * 4 / 3;
-    CGFloat originY = self.view.bounds.size.height - height;
+    CGRect bounds = [UIScreen mainScreen].bounds;
+    CGFloat width = bounds.size.width;
+    CGFloat height = bounds.size.height - width * 4 / 3;
+    CGFloat originY = bounds.size.height - height;
     
     AXCameraOverlayView *overlayView = [[AXCameraOverlayView alloc] initWithFrame:CGRectMake(0, originY, width, height)];
     [overlayView.dismiss addTarget:self action:@selector(overlayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
