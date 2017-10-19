@@ -23,20 +23,27 @@ typedef NS_ENUM(NSUInteger, CameraOverlayButton) {
     CameraOverlayButtonSwitch,
 };
 
+
+/**
+ 相机的overlay图层
+ */
 @interface AXCameraOverlayView : UIView
 
-// @xaoxuu: theme color
-//@property (strong, nonatomic) UIColor *tintColor;
 
-// @xaoxuu: cancel
-@property (strong, nonatomic) UIButton *cancel;
-// @xaoxuu: ok
-@property (strong, nonatomic) UIButton *ok;
-// @xaoxuu: switch camera
+/**
+ dismiss按钮，用于退出相机页面
+ */
+@property (strong, nonatomic) UIButton *dismiss;
+
+/**
+ shutter快门按钮，用于拍照
+ */
+@property (strong, nonatomic) UIButton *shutter;
+
+/**
+ 切换前后镜头按钮
+ */
 @property (strong, nonatomic) UIButton *switchCamera;
 
-
-
-- (instancetype)initWithFrame:(CGRect)frame tintColor:(UIColor *)tintColor;
 
 @end

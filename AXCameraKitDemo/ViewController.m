@@ -40,4 +40,13 @@
     [self presentCameraVC:nil];
 }
 
+- (void)cameraDidTakePicture:(UIImage *)image{
+    NSLog(@"%@",image);
+}
+- (void)cameraDidPresented{
+    NSLog(@"pre");
+}
+- (void)cameraDidDismissed{
+    NSLog(@"dismiss");
+}
 @end

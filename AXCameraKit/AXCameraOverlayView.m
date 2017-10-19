@@ -28,36 +28,34 @@ static NSString *stringFromInteger(NSInteger index){
 @implementation AXCameraOverlayView
 
 
-- (instancetype)initWithFrame:(CGRect)frame tintColor:(UIColor *)tintColor{
+- (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        self.tintColor = tintColor;
         _actions = [NSMutableDictionary dictionary];
         [self _init];
     }
     return self;
 }
 
-
 - (void)_init{
     actionIndex = CameraOverlayButtonCancel;
     self.backgroundColor = [UIColor blackColor];
-    UIButton *cancel = [self buttonWithImageName:@"ax_camera_cancel" highlighted:NO action:nil];
-    UIButton *ok = [self buttonWithImageName:@"ax_camera_shutter" highlighted:YES action:nil];
+    UIButton *dismiss = [self buttonWithImageName:@"ax_camera_cancel" highlighted:NO action:nil];
+    UIButton *shutter = [self buttonWithImageName:@"ax_camera_shutter" highlighted:YES action:nil];
     UIButton *switchCamera = [self buttonWithImageName:@"ax_camera_switch" highlighted:NO action:nil];
-    [self addSubview:cancel];
-    [self addSubview:ok];
+    [self addSubview:dismiss];
+    [self addSubview:shutter];
     [self addSubview:switchCamera];
-    self.cancel = cancel;
-    self.ok = ok;
+    self.dismiss = dismiss;
+    self.shutter = shutter;
     self.switchCamera = switchCamera;
     // layout ok
-    CGRect frame = ok.frame;
+    CGRect frame = shutter.frame;
     frame.origin.x = (self.frame.size.width - frame.size.width) / 2;
     frame.origin.y = (self.frame.size.height - frame.size.height) / 2;
-    ok.frame = frame;
+    shutter.frame = frame;
     // layout cancel
     frame.origin.x = margin;
-    cancel.frame = frame;
+    dismiss.frame = frame;
     // layout switch
     frame.origin.x = self.frame.size.width - frame.size.width - margin;
     switchCamera.frame = frame;
