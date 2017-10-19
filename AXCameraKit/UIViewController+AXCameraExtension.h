@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AXCameraOverlayView.h"
 
+NS_ASSUME_NONNULL_BEGIN
 /**
  相机代理，用于监听相机状态。无需手动设置代理。
  */
@@ -35,7 +36,11 @@
 
 @end
 
-@interface UIViewController (AXCameraExtension)
+
+/**
+ 需要在哪个页面弹出相机，就在哪个页面导入此分类，不要放到全局头文件中。
+ */
+@interface UIViewController (AXCameraExtension) <AXCameraKit>
 
 
 /**
@@ -54,14 +59,14 @@
 
  @param completion 完成回调
  */
-- (void)presentCameraVC:(void (^)(void))completion;
+- (void)presentCameraVC:(void (^ _Nullable)(void))completion;
 
 /**
  退出相机页面
  
  @param completion 完成回调
  */
-- (void)dismissCameraVC:(void (^)(void))completion;
+- (void)dismissCameraVC:(void (^ _Nullable)(void))completion;
 
 /**
  拍照
@@ -70,3 +75,4 @@
 
 
 @end
+NS_ASSUME_NONNULL_END

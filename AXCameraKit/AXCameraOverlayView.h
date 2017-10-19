@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
 /**
  根据按钮的tag判断是哪个按钮
 
@@ -47,3 +48,4 @@ typedef NS_ENUM(NSUInteger, CameraOverlayButton) {
 
 
 @end
+NS_ASSUME_NONNULL_END

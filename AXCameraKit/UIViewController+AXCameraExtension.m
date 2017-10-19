@@ -18,7 +18,7 @@ static BOOL isActive = NO;
 static const void *AXCameraExtensionImagePickerKey = &AXCameraExtensionImagePickerKey;
 static const void *AXCameraExtensionOverlayViewKey = &AXCameraExtensionOverlayViewKey;
 
-@interface UIViewController() <UIImagePickerControllerDelegate, UINavigationControllerDelegate, AXCameraKit>
+@interface UIViewController() <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 /**
  image picker
