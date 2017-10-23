@@ -54,6 +54,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (strong, readonly, nonatomic) UIImagePickerController *imagePicker;
 
+
+
+
 /**
  加载相机，可以根据需要提前异步加载
  */

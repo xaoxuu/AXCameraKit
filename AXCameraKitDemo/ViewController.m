@@ -31,7 +31,10 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    
+}
+
+- (void)dealloc{
+    NSLog(@"dealloc");
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

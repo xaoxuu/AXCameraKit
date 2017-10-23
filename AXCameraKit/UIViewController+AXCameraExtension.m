@@ -17,10 +17,15 @@ static BOOL isActive = NO;
 
 static const void *AXCameraExtensionImagePickerKey = &AXCameraExtensionImagePickerKey;
 static const void *AXCameraExtensionOverlayViewKey = &AXCameraExtensionOverlayViewKey;
+static const void *AXCameraExtensionCapturedImagesKey = &AXCameraExtensionCapturedImagesKey;
 
 @interface UIViewController() <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 
+/**
+ captured images
+ */
+//@property (strong, nonatomic) NSMutableArray<UIImage *> *capturedImages;
 
 @end
 
@@ -42,6 +47,14 @@ static const void *AXCameraExtensionOverlayViewKey = &AXCameraExtensionOverlayVi
     objc_setAssociatedObject(self, AXCameraExtensionOverlayViewKey, overlayView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+//- (NSMutableArray<UIImage *> *)capturedImages{
+//    return objc_getAssociatedObject(self, AXCameraExtensionCapturedImagesKey);
+//}
+//
+//- (void)setCapturedImages:(NSMutableArray<UIImage *> *)capturedImages{
+//    objc_setAssociatedObject(self, AXCameraExtensionCapturedImagesKey, capturedImages, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//}
+
 /**
  加载相机，可以提前异步加载
  */
@@ -54,6 +67,8 @@ static const void *AXCameraExtensionOverlayViewKey = &AXCameraExtensionOverlayVi
     if (![UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear]) {
         return;
     }
+//    self.capturedImages = [NSMutableArray array];
+    
     self.overlayView = [self setupOverlayView];
     
     self.imagePicker = [[UIImagePickerController alloc] init];
@@ -102,6 +117,7 @@ static const void *AXCameraExtensionOverlayViewKey = &AXCameraExtensionOverlayVi
 
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+//    [self.capturedImages removeAllObjects];
 }
 
 #pragma mark - control
@@ -171,7 +187,9 @@ static const void *AXCameraExtensionOverlayViewKey = &AXCameraExtensionOverlayVi
         //        [self uploadImageWithData:fileData];
         UIImage *image = info[UIImagePickerControllerOriginalImage];
         UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
-        
+        if (self.overlayView.isEnablePreview) {
+            self.overlayView.previewImage = image;
+        }
         if ([self respondsToSelector:@selector(cameraDidTakePicture:)]) {
             [self cameraDidTakePicture:image];
         }
@@ -233,18 +251,14 @@ static const void *AXCameraExtensionOverlayViewKey = &AXCameraExtensionOverlayVi
 #pragma mark - priv
 
 - (AXCameraOverlayView *)setupOverlayView{
-    CGRect bounds = [UIScreen mainScreen].bounds;
-    CGFloat width = bounds.size.width;
-    CGFloat height = bounds.size.height - width * 4 / 3;
-    CGFloat originY = bounds.size.height - height;
-    
-    AXCameraOverlayView *overlayView = [[AXCameraOverlayView alloc] initWithFrame:CGRectMake(0, originY, width, height)];
+    CGRect frame = [UIScreen mainScreen].bounds;
+    AXCameraOverlayView *overlayView = [[AXCameraOverlayView alloc] initWithFrame:frame];
     [overlayView.dismissButton addTarget:self action:@selector(overlayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [overlayView.shutterButton addTarget:self action:@selector(overlayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [overlayView.switchButton addTarget:self action:@selector(overlayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    
     return overlayView;
 }
+
 
 
 

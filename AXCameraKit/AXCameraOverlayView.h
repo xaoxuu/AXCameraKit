@@ -46,6 +46,15 @@ typedef NS_ENUM(NSUInteger, CameraOverlayButton) {
  */
 @property (strong, nonatomic) UIButton *switchButton;
 
+/**
+ 预览照片
+ */
+@property (strong, nonatomic) UIImage *previewImage;
+
+/**
+ 设置是否显示缩略图预览
+ */
+@property (assign, getter=isEnablePreview, nonatomic) BOOL enablePreview;
 
 @end
 NS_ASSUME_NONNULL_END
