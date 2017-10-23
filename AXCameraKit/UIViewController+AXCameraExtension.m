@@ -242,19 +242,7 @@ static const void *AXCameraExtensionOverlayViewKey = &AXCameraExtensionOverlayVi
     [overlayView.dismissButton addTarget:self action:@selector(overlayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [overlayView.shutterButton addTarget:self action:@selector(overlayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [overlayView.switchButton addTarget:self action:@selector(overlayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    // @xaoxuu: 有前置摄像头
-    if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront]) {
-        overlayView.switchButton.userInteractionEnabled = YES;
-        overlayView.switchButton.alpha = 1;
-    } else {
-        overlayView.switchButton.userInteractionEnabled = NO;
-        overlayView.switchButton.alpha = 0.5;
-    }
     
-    CGFloat margin = 16;
-    overlayView.dismissButton.imageEdgeInsets = UIEdgeInsetsMake(margin, margin, margin, margin);
-    margin = 18;
-    overlayView.switchButton.imageEdgeInsets = UIEdgeInsetsMake(margin, margin, margin, margin);
     return overlayView;
 }
 

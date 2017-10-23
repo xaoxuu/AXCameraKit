@@ -37,18 +37,32 @@ static NSString *stringFromInteger(NSInteger index){
 }
 
 - (void)_init{
+    // const
     actionIndex = CameraOverlayButtonDismiss;
-    UIButton *dismissButton = [self buttonWithImageName:@"ax_camera_dismiss" action:nil];
-    UIButton *shutterButton = [self buttonWithImageName:@"ax_camera_shutter" action:nil];
-    UIButton *switchButton = [self buttonWithImageName:@"ax_camera_switch" action:nil];
-    [self addSubview:dismissButton];
-    [self addSubview:shutterButton];
-    [self addSubview:switchButton];
-    self.dismissButton = dismissButton;
-    self.shutterButton = shutterButton;
-    self.switchButton = switchButton;
     
+    // buttons
+    self.dismissButton = [self buttonWithImageName:@"ax_camera_dismiss" action:nil];
+    self.shutterButton = [self buttonWithImageName:@"ax_camera_shutter" action:nil];
+    self.switchButton = [self buttonWithImageName:@"ax_camera_switch" action:nil];
+    [self addSubview:self.dismissButton];
+    [self addSubview:self.shutterButton];
+    [self addSubview:self.switchButton];
+    
+    // update frame
     self.frame = self.frame;
+    CGFloat margin = 16;
+    self.dismissButton.imageEdgeInsets = UIEdgeInsetsMake(margin, margin, margin, margin);
+    margin = 18;
+    self.switchButton.imageEdgeInsets = UIEdgeInsetsMake(margin, margin, margin, margin);
+    
+    // front camera available
+    if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront]) {
+        self.switchButton.userInteractionEnabled = YES;
+        self.switchButton.alpha = 1;
+    } else {
+        self.switchButton.userInteractionEnabled = NO;
+        self.switchButton.alpha = 0.5;
+    }
 }
 
 - (void)setFrame:(CGRect)frame{
@@ -80,7 +94,7 @@ static NSString *stringFromInteger(NSInteger index){
 }
 
 - (UIImage *)loadImageWithName:(NSString *)name{
-    // @xaoxuu: in main bundle/AXCameraKit.bundle
+    // in mainBundle/AXCameraKit.bundle
     NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:moduleName ofType:@"bundle"]];
     UIImage *img = [self loadImageWithBundle:bundle name:name];
     if (!img) {
@@ -106,10 +120,6 @@ static NSString *stringFromInteger(NSInteger index){
     }
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [super touchesBegan:touches withEvent:event];
-    NSLog(@"123");
-}
 
 
 @end
