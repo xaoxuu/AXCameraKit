@@ -38,37 +38,40 @@ static NSString *stringFromInteger(NSInteger index){
 
 - (void)_init{
     actionIndex = CameraOverlayButtonDismiss;
-    self.backgroundColor = [UIColor blackColor];
-    UIButton *dismiss = [self buttonWithImageName:@"ax_camera_dismiss" highlighted:NO action:nil];
-    UIButton *shutter = [self buttonWithImageName:@"ax_camera_shutter" highlighted:YES action:nil];
-    UIButton *switchCamera = [self buttonWithImageName:@"ax_camera_switch" highlighted:NO action:nil];
-    [self addSubview:dismiss];
-    [self addSubview:shutter];
-    [self addSubview:switchCamera];
-    self.dismiss = dismiss;
-    self.shutter = shutter;
-    self.switchCamera = switchCamera;
-    // layout ok
-    CGRect frame = shutter.frame;
-    frame.origin.x = (self.frame.size.width - frame.size.width) / 2;
-    frame.origin.y = (self.frame.size.height - frame.size.height) / 2;
-    shutter.frame = frame;
-    // layout cancel
-    frame.origin.x = margin;
-    dismiss.frame = frame;
-    // layout switch
-    frame.origin.x = self.frame.size.width - frame.size.width - margin;
-    switchCamera.frame = frame;
+    UIButton *dismissButton = [self buttonWithImageName:@"ax_camera_dismiss" action:nil];
+    UIButton *shutterButton = [self buttonWithImageName:@"ax_camera_shutter" action:nil];
+    UIButton *switchButton = [self buttonWithImageName:@"ax_camera_switch" action:nil];
+    [self addSubview:dismissButton];
+    [self addSubview:shutterButton];
+    [self addSubview:switchButton];
+    self.dismissButton = dismissButton;
+    self.shutterButton = shutterButton;
+    self.switchButton = switchButton;
+    
+    self.frame = self.frame;
 }
 
-- (UIButton *)buttonWithImageName:(NSString *)imageName highlighted:(BOOL)highlighted action:(BlockType)action{
+- (void)setFrame:(CGRect)frame{
+    [super setFrame:frame];
+    // layout ok
+    CGRect tmpFrame = self.shutterButton.frame;
+    tmpFrame.origin.x = (frame.size.width - tmpFrame.size.width) / 2;
+    tmpFrame.origin.y = (frame.size.height - tmpFrame.size.height) / 2;
+    self.shutterButton.frame = tmpFrame;
+    // layout cancel
+    tmpFrame.origin.x = margin;
+    self.dismissButton.frame = tmpFrame;
+    // layout switch
+    tmpFrame.origin.x = frame.size.width - tmpFrame.size.width - margin;
+    self.switchButton.frame = tmpFrame;
+}
+
+- (UIButton *)buttonWithImageName:(NSString *)imageName action:(BlockType)action{
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, normalButtonSize, normalButtonSize)];
     btn.layer.masksToBounds = YES;
     btn.layer.cornerRadius = 0.5 * fmin(btn.layer.frame.size.width, btn.layer.frame.size.height);
     [btn setImage:[self loadImageWithName:imageName] forState:UIControlStateNormal];
     btn.tag = actionIndex++;
-    if (highlighted) {
-    }
     if (action) {
         self.actions[stringFromInteger(btn.tag)] = action;
         [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];

@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 # pod trunk push AXCameraKit.podspec
 
   s.name         = "AXCameraKit"
-  s.version      = "0.0.5"
+  s.version      = "0.0.6"
   s.summary      = "这是一个简单易用的相机模块。"
   s.homepage     = "http://xaoxuu.com"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }

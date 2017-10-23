@@ -20,10 +20,7 @@ static const void *AXCameraExtensionOverlayViewKey = &AXCameraExtensionOverlayVi
 
 @interface UIViewController() <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-/**
- image picker
- */
-@property (strong, nonatomic) UIImagePickerController *imagePicker;
+
 
 @end
 
@@ -48,7 +45,7 @@ static const void *AXCameraExtensionOverlayViewKey = &AXCameraExtensionOverlayVi
 /**
  加载相机，可以提前异步加载
  */
-- (void)loadCameraVC{
+- (void)loadCameraKit{
     // @xaoxuu: 已经初始化
     if (self.imagePicker) {
         return;
@@ -82,23 +79,22 @@ static const void *AXCameraExtensionOverlayViewKey = &AXCameraExtensionOverlayVi
     
     [[NSNotificationCenter defaultCenter] addObserverForName:UIDeviceOrientationDidChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
+        CGAffineTransform transform;
         if (deviceOrientation == UIDeviceOrientationLandscapeLeft) {
-            [UIView animateWithDuration:0.38f animations:^{
-                self.overlayView.switchCamera.transform = CGAffineTransformMakeRotation(M_PI_2);
-            }];
+            transform = CGAffineTransformMakeRotation(M_PI_2);
         } else if (deviceOrientation == UIDeviceOrientationLandscapeRight) {
-            [UIView animateWithDuration:0.38f animations:^{
-                self.overlayView.switchCamera.transform = CGAffineTransformMakeRotation(-M_PI_2);
-            }];
+            transform = CGAffineTransformMakeRotation(-M_PI_2);
         } else if (deviceOrientation == UIDeviceOrientationPortraitUpsideDown) {
-            [UIView animateWithDuration:0.38f animations:^{
-                self.overlayView.switchCamera.transform = CGAffineTransformMakeRotation(M_PI);
-            }];
+            transform = CGAffineTransformMakeRotation(M_PI);
         } else {
-            [UIView animateWithDuration:0.38f animations:^{
-                self.overlayView.switchCamera.transform = CGAffineTransformIdentity;
-            }];
+            transform = CGAffineTransformIdentity;
         }
+        
+        [UIView animateWithDuration:0.5f delay:0 usingSpringWithDamping:1 initialSpringVelocity:0.72f options:UIViewAnimationOptionCurveEaseInOut|UIViewAnimationOptionAllowUserInteraction animations:^{
+            self.overlayView.switchButton.transform = transform;
+        } completion:^(BOOL finished) {
+            
+        }];
         
     }];
     
@@ -243,22 +239,22 @@ static const void *AXCameraExtensionOverlayViewKey = &AXCameraExtensionOverlayVi
     CGFloat originY = bounds.size.height - height;
     
     AXCameraOverlayView *overlayView = [[AXCameraOverlayView alloc] initWithFrame:CGRectMake(0, originY, width, height)];
-    [overlayView.dismiss addTarget:self action:@selector(overlayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [overlayView.shutter addTarget:self action:@selector(overlayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [overlayView.switchCamera addTarget:self action:@selector(overlayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [overlayView.dismissButton addTarget:self action:@selector(overlayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [overlayView.shutterButton addTarget:self action:@selector(overlayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [overlayView.switchButton addTarget:self action:@selector(overlayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     // @xaoxuu: 有前置摄像头
     if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront]) {
-        overlayView.switchCamera.userInteractionEnabled = YES;
-        overlayView.switchCamera.alpha = 1;
+        overlayView.switchButton.userInteractionEnabled = YES;
+        overlayView.switchButton.alpha = 1;
     } else {
-        overlayView.switchCamera.userInteractionEnabled = NO;
-        overlayView.switchCamera.alpha = 0.5;
+        overlayView.switchButton.userInteractionEnabled = NO;
+        overlayView.switchButton.alpha = 0.5;
     }
     
     CGFloat margin = 16;
-    overlayView.dismiss.imageEdgeInsets = UIEdgeInsetsMake(margin, margin, margin, margin);
+    overlayView.dismissButton.imageEdgeInsets = UIEdgeInsetsMake(margin, margin, margin, margin);
     margin = 18;
-    overlayView.switchCamera.imageEdgeInsets = UIEdgeInsetsMake(margin, margin, margin, margin);
+    overlayView.switchButton.imageEdgeInsets = UIEdgeInsetsMake(margin, margin, margin, margin);
     return overlayView;
 }
 
