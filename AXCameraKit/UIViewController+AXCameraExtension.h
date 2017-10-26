@@ -82,10 +82,26 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)takePicture;
 
 
+
+
+
+
+/**
+ 添加对屏幕方向的监听，屏幕方向变动随时更新UI
+ 通过-[presentCameraVC:]方法弹出相机页面会自动执行此方法
+ */
+- (void)addObserverForDeviceOrientation;
+
 /**
  移除对屏幕方向的监听
+ 通过-[dismissCameraVC:]方法退出相机页面会自动执行此方法
  */
-- (void)removeObserverForOrientation;
+- (void)removeObserverForDeviceOrientation;
+
+/**
+ 根据屏幕方向更新UI
+ */
+- (void)updateUIWithDeviceOrientation;
 
 @end
 NS_ASSUME_NONNULL_END

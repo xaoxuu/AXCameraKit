@@ -14,7 +14,7 @@
 @import ObjectiveC.runtime;
 
 static BOOL isActive = NO;
-
+static id observer;
 static const void *AXCameraExtensionImagePickerKey = &AXCameraExtensionImagePickerKey;
 static const void *AXCameraExtensionOverlayViewKey = &AXCameraExtensionOverlayViewKey;
 static const void *AXCameraExtensionCapturedImagesKey = &AXCameraExtensionCapturedImagesKey;
@@ -92,35 +92,53 @@ static const void *AXCameraExtensionCapturedImagesKey = &AXCameraExtensionCaptur
     self.imagePicker.cameraOverlayView = self.overlayView;
     
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:UIDeviceOrientationDidChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
-        UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
-        CGAffineTransform transform;
-        if (deviceOrientation == UIDeviceOrientationLandscapeLeft) {
-            transform = CGAffineTransformMakeRotation(M_PI_2);
-        } else if (deviceOrientation == UIDeviceOrientationLandscapeRight) {
-            transform = CGAffineTransformMakeRotation(-M_PI_2);
-        } else if (deviceOrientation == UIDeviceOrientationPortraitUpsideDown) {
-            transform = CGAffineTransformMakeRotation(M_PI);
-        } else {
-            transform = CGAffineTransformIdentity;
-        }
-        
-        [UIView animateWithDuration:0.5f delay:0 usingSpringWithDamping:1 initialSpringVelocity:0.72f options:UIViewAnimationOptionCurveEaseInOut|UIViewAnimationOptionAllowUserInteraction animations:^{
-            self.overlayView.switchButton.transform = transform;
-        } completion:^(BOOL finished) {
-            
-        }];
-        
-    }];
     
+}
+
+
+/**
+ 添加对屏幕方向的监听，屏幕方向变动随时更新UI
+ 通过-[presentCameraVC:]方法弹出相机页面会自动执行此方法
+ */
+- (void)addObserverForDeviceOrientation{
+    __weak typeof(self) weakSelf = self;
+    observer = [[NSNotificationCenter defaultCenter] addObserverForName:UIDeviceOrientationDidChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        [weakSelf updateUIWithDeviceOrientation];
+    }];
 }
 
 /**
  移除对屏幕方向的监听
+ 通过-[dismissCameraVC:]方法退出相机页面会自动执行此方法
  */
-- (void)removeObserverForOrientation{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
+- (void)removeObserverForDeviceOrientation{
+    [[NSNotificationCenter defaultCenter] removeObserver:observer];
+    observer = nil;
 }
+
+/**
+ 根据屏幕方向更新UI
+ */
+- (void)updateUIWithDeviceOrientation{
+    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
+    CGAffineTransform transform;
+    if (deviceOrientation == UIDeviceOrientationLandscapeLeft) {
+        transform = CGAffineTransformMakeRotation(M_PI_2);
+    } else if (deviceOrientation == UIDeviceOrientationLandscapeRight) {
+        transform = CGAffineTransformMakeRotation(-M_PI_2);
+    } else if (deviceOrientation == UIDeviceOrientationPortraitUpsideDown) {
+        transform = CGAffineTransformMakeRotation(M_PI);
+    } else {
+        transform = CGAffineTransformIdentity;
+    }
+    
+    [UIView animateWithDuration:0.5f delay:0 usingSpringWithDamping:1 initialSpringVelocity:0.72f options:UIViewAnimationOptionCurveEaseInOut|UIViewAnimationOptionAllowUserInteraction animations:^{
+        self.overlayView.switchButton.transform = transform;
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
 
 #pragma mark - control
 
@@ -132,12 +150,15 @@ static const void *AXCameraExtensionCapturedImagesKey = &AXCameraExtensionCaptur
 - (void)presentCameraVC:(void (^)(void))completion{
     if (!isActive && self.imagePicker) {
         isActive = YES;
+        __weak typeof(self) weakSelf = self;
+        [weakSelf updateUIWithDeviceOrientation];
         [self presentViewController:self.imagePicker animated:YES completion:^{
+            [weakSelf addObserverForDeviceOrientation];
             if (completion) {
                 completion();
             }
-            if ([self respondsToSelector:@selector(cameraDidPresented)]) {
-                [self cameraDidPresented];
+            if ([weakSelf respondsToSelector:@selector(cameraDidPresented)]) {
+                [weakSelf cameraDidPresented];
             }
         }];
     }
@@ -150,12 +171,14 @@ static const void *AXCameraExtensionCapturedImagesKey = &AXCameraExtensionCaptur
  */
 - (void)dismissCameraVC:(void (^)(void))completion{
     isActive = NO;
+    __weak typeof(self) weakSelf = self;
     [self.imagePicker dismissViewControllerAnimated:YES completion:^{
+        [weakSelf removeObserverForDeviceOrientation];
         if (completion) {
             completion();
         }
-        if ([self respondsToSelector:@selector(cameraDidDismissed)]) {
-            [self cameraDidDismissed];
+        if ([weakSelf respondsToSelector:@selector(cameraDidDismissed)]) {
+            [weakSelf cameraDidDismissed];
         }
     }];
 }
@@ -228,7 +251,7 @@ static const void *AXCameraExtensionCapturedImagesKey = &AXCameraExtensionCaptur
 
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
 
