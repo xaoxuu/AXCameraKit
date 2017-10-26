@@ -115,9 +115,11 @@ static const void *AXCameraExtensionCapturedImagesKey = &AXCameraExtensionCaptur
     
 }
 
-- (void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-//    [self.capturedImages removeAllObjects];
+/**
+ 移除对屏幕方向的监听
+ */
+- (void)removeObserverForOrientation{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
 #pragma mark - control

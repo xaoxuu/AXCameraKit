@@ -82,5 +82,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)takePicture;
 
 
+/**
+ 移除对屏幕方向的监听
+ */
+- (void)removeObserverForOrientation;
+
 @end
 NS_ASSUME_NONNULL_END
