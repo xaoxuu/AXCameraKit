@@ -10,7 +10,7 @@
 
 static CGFloat margin = 16;
 static CGFloat normalButtonSize = 64.0f;
-
+static CGFloat overlayHeight = 128.0f;
 
 static NSString *moduleName = @"AXCameraKit";
 typedef void(^BlockType)(void);
@@ -19,6 +19,9 @@ static NSString *stringFromInteger(NSInteger index){
     return [NSString stringWithFormat:@"%ld", (long)index];
 }
 
+static inline BOOL isIphoneX(){
+    return ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO);
+}
 
 @interface AXCameraOverlayView()
 
@@ -81,6 +84,7 @@ static NSString *stringFromInteger(NSInteger index){
     // overlay
     self.overlayView = [[UIView alloc] initWithFrame:self.bounds];
     [self addSubview:self.overlayView];
+    self.overlayView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
     // buttons
     self.dismissButton = [self buttonWithImageName:@"ax_camera_dismiss" action:nil];
     self.shutterButton = [self buttonWithImageName:@"ax_camera_shutter" action:nil];
@@ -100,7 +104,11 @@ static NSString *stringFromInteger(NSInteger index){
     [super setFrame:frame];
     
     CGRect overlayFrame = frame;
-    overlayFrame.size.height = frame.size.height - frame.size.width * 4 / 3;
+    CGFloat height = overlayHeight;
+    if (isIphoneX()) {
+        height += 34;
+    }
+    overlayFrame.size.height = height;
     overlayFrame.origin.y = frame.size.height - overlayFrame.size.height;
     [self updateOverlayFrame:overlayFrame];
     
@@ -125,7 +133,7 @@ static NSString *stringFromInteger(NSInteger index){
     // layout shutter button
     CGRect tmpFrame = self.shutterButton.frame;
     tmpFrame.origin.x = (frame.size.width - tmpFrame.size.width) / 2;
-    tmpFrame.origin.y = (frame.size.height - tmpFrame.size.height) / 2;
+    tmpFrame.origin.y = 32;
     self.shutterButton.frame = tmpFrame;
     // layout dismiss button
     tmpFrame.origin.x = margin;

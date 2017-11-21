@@ -8,9 +8,10 @@
 
 #import "ViewController.h"
 #import <AXCameraKit/AXCameraKit.h>
+#import "AXCameraViewController.h"
 
 @interface ViewController ()
-
+//@property (weak, nonatomic) AXCameraViewController *vc;
 @end
 
 @implementation ViewController
@@ -18,9 +19,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [self loadCameraKit];
+//    [self loadCameraKit];
+//    self.overlayView.enablePreview = YES;
 }
 
+- (IBAction)openCamera:(UIButton *)sender {
+    AXCameraViewController *vc = [[AXCameraViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:^{
+        
+    }];
+}
+
+
+//- (AXCameraViewController *)vc{
+//    if (!_vc) {
+//        _vc = [[AXCameraViewController alloc] init];
+//    }
+//    return _vc;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -40,16 +56,17 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [super touchesBegan:touches withEvent:event];
     
-    [self presentCameraVC:nil];
+//    [self presentCameraVC:nil];
+    
 }
 
-- (void)cameraDidTakePicture:(UIImage *)image{
-    NSLog(@"%@",image);
-}
-- (void)cameraDidPresented{
-    NSLog(@"pre");
-}
-- (void)cameraDidDismissed{
-    NSLog(@"dismiss");
-}
+//- (void)cameraDidTakePicture:(UIImage *)image{
+//    NSLog(@"%@",image);
+//}
+//- (void)cameraDidPresented{
+//    NSLog(@"pre");
+//}
+//- (void)cameraDidDismissed{
+//    NSLog(@"dismiss");
+//}
 @end

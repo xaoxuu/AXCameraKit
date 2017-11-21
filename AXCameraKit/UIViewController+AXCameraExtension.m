@@ -19,6 +19,11 @@ static const void *AXCameraExtensionImagePickerKey = &AXCameraExtensionImagePick
 static const void *AXCameraExtensionOverlayViewKey = &AXCameraExtensionOverlayViewKey;
 static const void *AXCameraExtensionCapturedImagesKey = &AXCameraExtensionCapturedImagesKey;
 
+static inline BOOL isIphoneX(){
+    return ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO);
+}
+
+
 @interface UIViewController() <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 
@@ -73,7 +78,7 @@ static const void *AXCameraExtensionCapturedImagesKey = &AXCameraExtensionCaptur
     
     self.imagePicker = [[UIImagePickerController alloc] init];
     self.imagePicker.delegate = self;
-    self.imagePicker.allowsEditing = NO;
+    self.imagePicker.allowsEditing = YES;
     
     self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
     //录制视频时长，默认10s
@@ -92,6 +97,20 @@ static const void *AXCameraExtensionCapturedImagesKey = &AXCameraExtensionCaptur
     self.imagePicker.cameraOverlayView = self.overlayView;
     
     
+    CGFloat topHeight;
+    if (isIphoneX()) {
+        topHeight = 44 + 44; // 状态栏 + 导航栏
+    } else {
+        topHeight = 0;
+    }
+    
+    CGRect pickerFrame = self.imagePicker.view.frame;
+    pickerFrame.origin.y += topHeight;
+    self.imagePicker.view.frame = pickerFrame;
+    CGRect overlayFrame = self.overlayView.frame;
+    overlayFrame.size.height = self.view.frame.size.height - self.view.frame.size.width * 4 / 3 - topHeight;
+    overlayFrame.origin.y = self.view.frame.size.height - overlayFrame.size.height;
+    self.overlayView.frame = overlayFrame;
     
 }
 
