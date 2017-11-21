@@ -196,7 +196,7 @@ static NSString *moduleName = @"AXCameraKit";
     }
 }
 
-- (void)changeCamera{
+- (void)switchCameraDevice{
     NSUInteger cameraCount = [[AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo] count];
     if (cameraCount > 1) {
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -292,7 +292,7 @@ static NSString *moduleName = @"AXCameraKit";
 }
 
 #pragma mark - 拍照
-- (void)shutterCamera {
+- (void)takePicture {
     AVCaptureConnection * videoConnection = [self.imageOutput connectionWithMediaType:AVMediaTypeVideo];
     if (!videoConnection) {
         NSLog(@"take photo failed!");
@@ -331,11 +331,10 @@ static NSString *moduleName = @"AXCameraKit";
         } else {
             [self dismissViewControllerAnimated:YES completion:nil];
         }
-        
     } else if (sender.tag == CameraOverlayButtonShutter) {
-        [self shutterCamera];
+        [self takePicture];
     } else if (sender.tag == CameraOverlayButtonSwitch) {
-        [self changeCamera];
+        [self switchCameraDevice];
     }
 }
 #pragma mark - priv

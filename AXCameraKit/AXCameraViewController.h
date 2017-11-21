@@ -11,4 +11,23 @@
 
 @interface AXCameraViewController : UIViewController
 
+
+/**
+ 拍照
+ */
+- (void)takePicture;
+
+
+/**
+ 切换前后摄像头
+ */
+- (void)switchCameraDevice;
+
+
+/**
+ 开关闪光灯
+ */
+- (void)switchFlashlight;
+
+
 @end
