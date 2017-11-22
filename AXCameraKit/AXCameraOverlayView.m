@@ -9,6 +9,7 @@
 #import "AXCameraOverlayView.h"
 
 static CGFloat margin = 16;
+static CGFloat smallButtonSize = 40.0f;
 static CGFloat normalButtonSize = 64.0f;
 static CGFloat overlayHeight = 128.0f;
 
@@ -26,9 +27,9 @@ static inline BOOL isIphoneX(){
 @interface AXCameraOverlayView()
 
 /**
- 操作区域的图层
+ 底部操作区域的图层
  */
-@property (strong, nonatomic) UIView *overlayView;
+@property (strong, nonatomic) UIView *bottomOverlayView;
 
 @property (strong, nonatomic) NSMutableDictionary<NSString *, BlockType> *actions;
 /**
@@ -60,6 +61,8 @@ static inline BOOL isIphoneX(){
     // preview
     self.previewButton = [self buttonWithImageName:nil action:^{
         // preview image
+        NSString *url = @"photos-redirect://";
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
     }];
     self.previewButton.layer.cornerRadius = 4;
     [self addSubview:self.previewButton];
@@ -82,18 +85,28 @@ static inline BOOL isIphoneX(){
 
 - (void)_initOverlayView{
     // overlay
-    self.overlayView = [[UIView alloc] initWithFrame:self.bounds];
-    [self addSubview:self.overlayView];
-    self.overlayView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
-    // buttons
+    self.bottomOverlayView = [[UIView alloc] initWithFrame:self.bounds];
+    [self addSubview:self.bottomOverlayView];
+    self.bottomOverlayView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
+    
+    
+    // bottom buttons
     self.dismissButton = [self buttonWithImageName:@"ax_camera_dismiss" action:nil];
     self.shutterButton = [self buttonWithImageName:@"ax_camera_shutter" action:nil];
     self.switchButton = [self buttonWithImageName:@"ax_camera_switch" action:nil];
     
-    [self.overlayView addSubview:self.dismissButton];
-    [self.overlayView addSubview:self.shutterButton];
-    [self.overlayView addSubview:self.switchButton];
-    CGFloat margin = 16;
+    [self.bottomOverlayView addSubview:self.dismissButton];
+    [self.bottomOverlayView addSubview:self.shutterButton];
+    [self.bottomOverlayView addSubview:self.switchButton];
+    
+    // top buttons
+    self.flashlightButton = [self buttonWithImageName:@"ax_camera_flash_auto" action:nil];
+    self.flashlightButton.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
+    [self addSubview:self.flashlightButton];
+    
+    CGFloat margin = 8;
+    self.flashlightButton.imageEdgeInsets = UIEdgeInsetsMake(margin, margin, margin, margin);
+    margin = 16;
     self.dismissButton.imageEdgeInsets = UIEdgeInsetsMake(margin, margin, margin, margin);
     margin = 18;
     self.switchButton.imageEdgeInsets = UIEdgeInsetsMake(margin, margin, margin, margin);
@@ -103,18 +116,18 @@ static inline BOOL isIphoneX(){
 - (void)setFrame:(CGRect)frame{
     [super setFrame:frame];
     
-    CGRect overlayFrame = frame;
+    CGRect bottomFrame = frame;
     CGFloat height = overlayHeight;
     if (isIphoneX()) {
         height += 34;
     }
-    overlayFrame.size.height = height;
-    overlayFrame.origin.y = frame.size.height - overlayFrame.size.height;
-    [self updateOverlayFrame:overlayFrame];
+    bottomFrame.size.height = height;
+    bottomFrame.origin.y = frame.size.height - bottomFrame.size.height;
+    [self updateBottomOverlayFrame:bottomFrame];
     
 }
 - (void)setBackgroundColor:(UIColor *)backgroundColor{
-    [self.overlayView setBackgroundColor:backgroundColor];
+    [self.bottomOverlayView setBackgroundColor:backgroundColor];
 }
 
 - (void)setEnablePreview:(BOOL)enablePreview{
@@ -122,14 +135,15 @@ static inline BOOL isIphoneX(){
     self.previewButton.hidden = !enablePreview;
 }
 
-- (void)updateOverlayFrame:(CGRect)frame{
+- (void)updateBottomOverlayFrame:(CGRect)frame{
+    // bottom
     CGFloat minHeight = normalButtonSize + 2 * margin;
     CGFloat offset = frame.size.height - minHeight;
     if (offset < 0) {
         frame.size.height = minHeight;
         frame.origin.y += offset;
     }
-    self.overlayView.frame = frame;
+    self.bottomOverlayView.frame = frame;
     // layout shutter button
     CGRect tmpFrame = self.shutterButton.frame;
     tmpFrame.origin.x = (frame.size.width - tmpFrame.size.width) / 2;
@@ -145,6 +159,9 @@ static inline BOOL isIphoneX(){
     // preview
     CGFloat previewHeight = 50;
     self.previewButton.frame = CGRectMake(8, frame.origin.y - previewHeight - 8, previewHeight * 3 / 4, previewHeight);
+    self.flashlightButton.frame = CGRectMake(frame.size.width - smallButtonSize - 8, frame.origin.y - smallButtonSize - 8, smallButtonSize, smallButtonSize);
+    self.flashlightButton.layer.cornerRadius = 0.5 * smallButtonSize;
+    
 }
 
 - (void)setPreviewImage:(UIImage *)previewImage{

@@ -22,8 +22,9 @@
 
 /* Begin PBXBuildFile section */
 		CD293F2B1F9795EA00DB4372 /* AXCameraKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CD755F1E1F9765C10029D024 /* AXCameraKit.bundle */; };
-		CD3A8EFF1FC41E9100177ADC /* AXCameraViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = CD3A8EFD1FC41E9100177ADC /* AXCameraViewController.h */; };
+		CD3A8EFF1FC41E9100177ADC /* AXCameraViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = CD3A8EFD1FC41E9100177ADC /* AXCameraViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CD3A8F001FC41E9100177ADC /* AXCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3A8EFE1FC41E9100177ADC /* AXCameraViewController.m */; };
+		CD3A8F031FC5127800177ADC /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3A8F021FC5127800177ADC /* CameraViewController.m */; };
 		CD755EF81F9765260029D024 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD755EF71F9765260029D024 /* AppDelegate.m */; };
 		CD755EFB1F9765260029D024 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD755EFA1F9765260029D024 /* ViewController.m */; };
 		CD755EFE1F9765260029D024 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD755EFC1F9765260029D024 /* Main.storyboard */; };
@@ -66,6 +67,8 @@
 /* Begin PBXFileReference section */
 		CD3A8EFD1FC41E9100177ADC /* AXCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AXCameraViewController.h; sourceTree = "<group>"; };
 		CD3A8EFE1FC41E9100177ADC /* AXCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AXCameraViewController.m; sourceTree = "<group>"; };
+		CD3A8F011FC5127800177ADC /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		CD3A8F021FC5127800177ADC /* CameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		CD755EF31F9765260029D024 /* AXCameraKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AXCameraKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD755EF61F9765260029D024 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CD755EF71F9765260029D024 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 				CD755EF71F9765260029D024 /* AppDelegate.m */,
 				CD755EF91F9765260029D024 /* ViewController.h */,
 				CD755EFA1F9765260029D024 /* ViewController.m */,
+				CD3A8F011FC5127800177ADC /* CameraViewController.h */,
+				CD3A8F021FC5127800177ADC /* CameraViewController.m */,
 				CD755EFC1F9765260029D024 /* Main.storyboard */,
 				CD755EFF1F9765260029D024 /* Assets.xcassets */,
 				CD755F011F9765260029D024 /* LaunchScreen.storyboard */,
@@ -164,8 +169,8 @@
 			files = (
 				CD755F151F9765690029D024 /* AXCameraKit.h in Headers */,
 				CD755F2D1F9769800029D024 /* AXCameraOverlayView.h in Headers */,
-				CD755F291F9766DC0029D024 /* UIViewController+AXCameraExtension.h in Headers */,
 				CD3A8EFF1FC41E9100177ADC /* AXCameraViewController.h in Headers */,
+				CD755F291F9766DC0029D024 /* UIViewController+AXCameraExtension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD755EFB1F9765260029D024 /* ViewController.m in Sources */,
+				CD3A8F031FC5127800177ADC /* CameraViewController.m in Sources */,
 				CD755F061F9765260029D024 /* main.m in Sources */,
 				CD755EF81F9765260029D024 /* AppDelegate.m in Sources */,
 			);

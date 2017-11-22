@@ -6,14 +6,9 @@
 //  Copyright © 2017 xaoxuu. All rights reserved.
 //
 
-#define kScreenBounds   [UIScreen mainScreen].bounds
-#define kScreenWidth  kScreenBounds.size.width*1.0
-#define kScreenHeight kScreenBounds.size.height*1.0
-
-
 #import "AXCameraViewController.h"
 #import <AVFoundation/AVFoundation.h>
-#import "AXCameraOverlayView.h"
+
 
 static NSString *moduleName = @"AXCameraKit";
 
@@ -29,28 +24,31 @@ static NSString *moduleName = @"AXCameraKit";
  */
 @property(nonatomic)AVCaptureDeviceInput *input;
 
-//当启动摄像头开始捕获输入
-//@property(nonatomic)AVCaptureMetadataOutput *output;
-
+/**
+ 图像输出
+ */
 @property (nonatomic)AVCaptureStillImageOutput *imageOutput;
 
+/**
+ 捕获回话，将输入输出结合
+ */
 @property(nonatomic)AVCaptureSession *captureSession;
-
 
 /**
  图像预览层，实时显示捕获的图像
  */
 @property(nonatomic)AVCaptureVideoPreviewLayer *previewLayer;
 
-@property(strong, nonatomic)AXCameraOverlayView *overlayView;
 
+/**
+ 闪光灯
+ */
+@property (nonatomic)UIButton *flashlightButton;
 
-@property (nonatomic)UIButton *flashButton;
-
+/**
+ 对焦框
+ */
 @property (nonatomic)UIView *focusView;
-@property (nonatomic)BOOL isFlashlightOpen;
-
-
 
 @end
 
@@ -156,7 +154,7 @@ static NSString *moduleName = @"AXCameraKit";
     
     //使用self.captureSession，初始化预览层，self.captureSession负责驱动input进行信息的采集，layer负责把图像渲染显示
     self.previewLayer = [[AVCaptureVideoPreviewLayer alloc]initWithSession:self.captureSession];
-    self.previewLayer.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+    self.previewLayer.frame = [UIScreen mainScreen].bounds;
     self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     [self.view.layer addSublayer:self.previewLayer];
     
@@ -177,21 +175,30 @@ static NSString *moduleName = @"AXCameraKit";
 
 // 开关闪光灯
 - (void)switchFlashlight{
+    UIButton *sender = self.overlayView.flashlightButton;
+    static NSInteger state;
+    // state: 0:auto 1:on 2:off
     if ([self.cameraDdevice lockForConfiguration:nil]) {
-        if (self.isFlashlightOpen) {
-            if ([self.cameraDdevice isFlashModeSupported:AVCaptureFlashModeOff]) {
-                [self.cameraDdevice setFlashMode:AVCaptureFlashModeOff];
-                self.isFlashlightOpen = NO;
-                [_flashButton setTitle:@"闪光灯关" forState:UIControlStateNormal];
-            }
-        }else{
+        if (state == 0) {
             if ([self.cameraDdevice isFlashModeSupported:AVCaptureFlashModeOn]) {
+                state = 1;
                 [self.cameraDdevice setFlashMode:AVCaptureFlashModeOn];
-                self.isFlashlightOpen = YES;
-                [_flashButton setTitle:@"闪光灯开" forState:UIControlStateNormal];
+                [sender setImage:[self.overlayView loadImageWithName:@"ax_camera_flash_on"] forState:UIControlStateNormal];
+            }
+        } else if (state == 1) {
+            if ([self.cameraDdevice isFlashModeSupported:AVCaptureFlashModeOff]) {
+                state = 2;
+                [self.cameraDdevice setFlashMode:AVCaptureFlashModeOff];
+                [sender setImage:[self.overlayView loadImageWithName:@"ax_camera_flash_off"] forState:UIControlStateNormal];
+            }
+            
+        } else {
+            if ([self.cameraDdevice isFlashModeSupported:AVCaptureFlashModeAuto]) {
+                state = 0;
+                [self.cameraDdevice setFlashMode:AVCaptureFlashModeAuto];
+                [sender setImage:[self.overlayView loadImageWithName:@"ax_camera_flash_auto"] forState:UIControlStateNormal];
             }
         }
-        
         [self.cameraDdevice unlockForConfiguration];
     }
 }
@@ -335,8 +342,11 @@ static NSString *moduleName = @"AXCameraKit";
         [self takePicture];
     } else if (sender.tag == CameraOverlayButtonSwitch) {
         [self switchCameraDevice];
+    } else if (sender.tag == CameraOverlayButtonFlashlight) {
+        [self switchFlashlight];
     }
 }
+
 #pragma mark - priv
 
 // 设备支持的质量
@@ -355,6 +365,7 @@ static NSString *moduleName = @"AXCameraKit";
 - (AXCameraOverlayView *)setupOverlayView{
     CGRect frame = [UIScreen mainScreen].bounds;
     AXCameraOverlayView *overlayView = [[AXCameraOverlayView alloc] initWithFrame:frame];
+    [overlayView.flashlightButton addTarget:self action:@selector(overlayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [overlayView.dismissButton addTarget:self action:@selector(overlayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [overlayView.shutterButton addTarget:self action:@selector(overlayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     NSUInteger cameraCount = [[AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo] count];
@@ -368,25 +379,5 @@ static NSString *moduleName = @"AXCameraKit";
 }
 
 
-
-- (UIImage *)loadImageWithName:(NSString *)name{
-    // in mainBundle/AXCameraKit.bundle
-    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:moduleName ofType:@"bundle"]];
-    UIImage *img = [self loadImageWithBundle:bundle name:name];
-    if (!img) {
-        NSString *path_frameworks = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"Frameworks"];
-        path_frameworks = [[path_frameworks stringByAppendingPathComponent:moduleName] stringByAppendingPathExtension:@"framework"];
-        bundle = [NSBundle bundleWithPath:path_frameworks];
-        bundle = [NSBundle bundleWithPath:[bundle pathForResource:moduleName ofType:@"bundle"]];
-        img = [self loadImageWithBundle:bundle name:name];
-    }
-    return img;
-}
-
-- (UIImage *)loadImageWithBundle:(NSBundle *)bundle name:(NSString *)name{
-    NSString *path = [bundle pathForResource:name ofType:@"png"];
-    UIImage *img = [UIImage imageWithContentsOfFile:path];
-    return img;
-}
 
 @end

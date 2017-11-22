@@ -25,6 +25,9 @@
 
 - (IBAction)openCamera:(UIButton *)sender {
     AXCameraViewController *vc = [[AXCameraViewController alloc] init];
+    CGRect frame = vc.overlayView.frame;
+    frame.size.height -= 49;
+    vc.overlayView.frame = frame;
     [self presentViewController:vc animated:YES completion:^{
         
     }];

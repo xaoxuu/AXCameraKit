@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AXCameraOverlayView.h"
 
 @interface AXCameraViewController : UIViewController
 
+@property (strong, nonatomic) AXCameraOverlayView *overlayView;
 
 /**
  拍照
