@@ -10,28 +10,17 @@
 #import <AVFoundation/AVFoundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
+
+
+
 /**
- 根据按钮的tag判断是哪个按钮
-
- - CameraOverlayButtonUnknown: 未知按钮
- - CameraOverlayButtonDismiss: dismiss按钮
- - CameraOverlayButtonShutter: 快门按钮
- - CameraOverlayButtonSwitch: 切换前后摄像头按钮
+ 相机预览层长宽比
+ 
+ - CameraOverlayViewAspectRatio1_1: 1:1
+ - CameraOverlayViewAspectRatio4_3: 4:3 (默认值)
+ - CameraOverlayViewAspectRatio16_9: 16:9
+ - CameraOverlayViewAspectRatioFill: 全屏
  */
-//typedef NS_ENUM(NSUInteger, CameraOverlayButton) {
-//    CameraOverlayButtonUnknown = 10000,
-//    CameraOverlayButtonDismiss,
-//    CameraOverlayButtonShutter,
-//    CameraOverlayButtonSwitch,
-//    CameraOverlayButtonFlashlight,
-//};
-
-typedef NS_ENUM(NSUInteger, CameraOverlayViewFlashlightButtonState) {
-    CameraOverlayViewFlashlightButtonStateOff,
-    CameraOverlayViewFlashlightButtonStateOn,
-    CameraOverlayViewFlashlightButtonStateAuto, // default
-};
-
 typedef NS_ENUM(NSUInteger, CameraOverlayViewAspectRatio) {
     CameraOverlayViewAspectRatio1_1,
     CameraOverlayViewAspectRatio4_3, // default
@@ -40,15 +29,24 @@ typedef NS_ENUM(NSUInteger, CameraOverlayViewAspectRatio) {
 };
 
 
+
 @protocol AXCameraOverlayViewDelegate
 
 @optional
 
+/**
+ 点击了Dismiss按钮
+
+ @param sender 按钮
+ */
 - (void)overlayViewDidTappedDismissButton:(UIButton *)sender;
+
+/**
+ 点击了拍照按钮
+
+ @param sender 按钮
+ */
 - (void)overlayViewDidTappedShutterButton:(UIButton *)sender;
-- (void)overlayViewDidTappedSwitchCameraDeviceButton:(UIButton *)sender;
-- (void)overlayViewDidTappedSwitchFlashlightButton:(UIButton *)sender;
-- (void)overlayViewDidTappedChangeAspectRatioButton:(UIButton *)sender;
 
 
 /**
@@ -87,8 +85,12 @@ typedef NS_ENUM(NSUInteger, CameraOverlayViewAspectRatio) {
  */
 @interface AXCameraOverlayView : UIView
 
-// @xaoxuu: delegate
+
+/**
+ delegate
+ */
 @property (weak, nonatomic) NSObject<AXCameraOverlayViewDelegate> *delegate;
+#pragma mark - ui
 /**
  闪光灯
  */
@@ -124,13 +126,42 @@ typedef NS_ENUM(NSUInteger, CameraOverlayViewAspectRatio) {
  */
 @property (assign, getter=isEnablePreview, nonatomic) BOOL enablePreview;
 
-// @xaoxuu: preview layer frame
-@property (assign, nonatomic) CGRect previewFrame;
+
+/**
+ 获取预览层的frame
+ */
+@property (assign, readonly, nonatomic) CGRect previewFrame;
+
+#pragma mark - state
 
 
-- (void)updatePreviewLayerFrameWithAspectRatio:(CameraOverlayViewAspectRatio)aspectRatio;
+/**
+ 闪光灯模式
+ */
+@property (assign, nonatomic) AVCaptureFlashMode flashMode;
 
+
+/**
+ 长宽比
+ */
+@property (assign, nonatomic) CameraOverlayViewAspectRatio aspectRatio;
+
+
+
+
+
+/**
+ 根据屏幕方向更新UI
+ */
 - (void)updateUIWithDeviceOrientation;
+
+
+/**
+ 发送按钮事件
+
+ @param sender 按钮
+ */
+- (void)sendButtonAction:(UIButton *)sender;
 
 
 @end

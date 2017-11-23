@@ -107,7 +107,7 @@ static NSString *moduleName = @"AXCameraKit";
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceOrientationDidChanged) name:UIDeviceOrientationDidChangeNotification object:nil];
-    [self.overlayView updatePreviewLayerFrameWithAspectRatio:CameraOverlayViewAspectRatio4_3];
+    self.overlayView.aspectRatio = CameraOverlayViewAspectRatio4_3;
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -203,7 +203,7 @@ static NSString *moduleName = @"AXCameraKit";
 
 
 - (void)takePicture {
-    AVCaptureConnection * videoConnection = [self.imageOutput connectionWithMediaType:AVMediaTypeVideo];
+    AVCaptureConnection *videoConnection = [self.imageOutput connectionWithMediaType:AVMediaTypeVideo];
     if (!videoConnection) {
         NSLog(@"take photo failed!");
         return;
@@ -221,11 +221,9 @@ static NSString *moduleName = @"AXCameraKit";
         
     }];
 }
-
-- (void)switchFlashlight{
-    
+- (void)changeFlashMode{
+    [self.overlayView sendButtonAction:self.overlayView.switchFlashlightButton];
 }
-
 - (void)switchCameraDevice{
     NSUInteger cameraCount = [[AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo] count];
     if (cameraCount > 1) {

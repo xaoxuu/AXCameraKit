@@ -22,6 +22,10 @@
     self.overlayView.frame = frame;
     self.overlayView.dismissButton.hidden = YES;
     
+//    [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
+//        [self changeFlashMode];
+//    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {

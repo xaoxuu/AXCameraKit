@@ -8,6 +8,13 @@
 
 #import "AXCameraOverlayView.h"
 
+
+typedef NS_ENUM(NSUInteger, CameraOverlayViewFlashlightButtonState) {
+    CameraOverlayViewFlashlightButtonStateOff,
+    CameraOverlayViewFlashlightButtonStateOn,
+    CameraOverlayViewFlashlightButtonStateAuto, // default
+};
+
 static NSString *moduleName = @"AXCameraKit";
 static inline BOOL isIphoneX(){
     return ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO);
@@ -15,8 +22,8 @@ static inline BOOL isIphoneX(){
 
 //NSString *url = @"photos-redirect://";
 static CGFloat margin = 8;
+static CGFloat smallButtonSize = 40.0f;
 static CGFloat normalButtonSize = 64.0f;
-static CGFloat kMinHeight = 64 + 16;
 
 static CGFloat kScreenH(){
     static CGFloat height;
@@ -27,17 +34,36 @@ static CGFloat kScreenH(){
     return height;
 }
 
+
 static CGFloat kTopViewHeight(){
     static CGFloat height;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        height = 40;
+        height = smallButtonSize;
         if (isIphoneX()) {
-            height += 24;
+            height += 44;
         }
     });
     return height;
 }
+
+
+static CGFloat kMinHeight(){
+    static CGFloat height;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if (kScreenH() == 736 || kScreenH() == 812) {
+            height = normalButtonSize + 2 * 16;
+        } else {
+            height = normalButtonSize + 2 * 8;
+        }
+        if (isIphoneX()) {
+            height += 34;
+        }
+    });
+    return height;
+}
+
 
 static CGFloat kBottomViewHeight(){
     static CGFloat height;
@@ -56,9 +82,10 @@ static CGFloat kBottomSafeMargin(){
     static CGFloat height;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        height = 32;
-        if (isIphoneX()) {
-            height += 34;
+        if (kScreenH() == 736 || kScreenH() == 812) {
+            height = kMinHeight() - normalButtonSize - 16;
+        } else {
+            height = kMinHeight() - normalButtonSize - 8;
         }
     });
     return height;
@@ -123,6 +150,9 @@ static inline UIImage *loadImageWithName(NSString *name) {
 
 @implementation AXCameraOverlayView
 
+
+#pragma mark - life circle
+
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         
@@ -156,7 +186,7 @@ static inline UIImage *loadImageWithName(NSString *name) {
 - (void)_initOverlayView{
     // top view
     self.topOverlayView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, kTopViewHeight())];
-    self.topOverlayView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.6];
+    self.topOverlayView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
     [self addSubview:self.topOverlayView];
     // top buttons
     self.switchFlashlightButton = [self targetView:self.topOverlayView addButtonWithImageName:@"flashlight_auto" imageEdgeInsets:0];
@@ -166,13 +196,11 @@ static inline UIImage *loadImageWithName(NSString *name) {
     self.changeAspectRatioButton.tag = CameraOverlayViewAspectRatio4_3;
     
     self.previewButton = [self targetView:self.topOverlayView addButtonWithImageName:nil imageEdgeInsets:0];
-    self.previewButton.layer.cornerRadius = 4;
-    self.previewButton.imageEdgeInsets = UIEdgeInsetsMake(2, 2, 2, 2);
     
     
     // bottom view
     self.bottomOverlayView = [[UIView alloc] initWithFrame:self.bounds];
-    self.bottomOverlayView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.6];
+    self.bottomOverlayView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
     [self addSubview:self.bottomOverlayView];
     
     // bottom buttons
@@ -200,28 +228,23 @@ static inline UIImage *loadImageWithName(NSString *name) {
     // top
     CGRect topFrame = frame;
     topFrame.size.height = kTopViewHeight();
-    if (isIphoneX() && frame.origin.y < 24) {
-        topFrame.size.height += 24 - frame.origin.y; // 刘海的高度
-    }
+    
     [self updateTopOverlayFrame:topFrame];
+    
     // bottom
     CGRect bottomFrame = frame;
     bottomFrame.size.height = kBottomViewHeight();
-    if (isIphoneX() && kScreenH() - (frame.origin.y + frame.size.height) < 34) {
+    if (isIphoneX()) {
         bottomFrame.size.height += 34 - (kScreenH() - (frame.origin.y + frame.size.height)); // 底部安全区域
     }
     bottomFrame.origin.y = frame.size.height - bottomFrame.size.height;
     [self updateBottomOverlayFrame:bottomFrame];
     
-    
+    if (CGRectEqualToRect(_previewFrame, CGRectZero)) {
+        self.aspectRatio = CameraOverlayViewAspectRatio4_3;
+    }
 }
 
-- (CGRect)previewFrame{
-    if (CGRectEqualToRect(_previewFrame, CGRectZero)) {
-        [self updatePreviewLayerFrameWithAspectRatio:CameraOverlayViewAspectRatio4_3];
-    }
-    return _previewFrame;
-}
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor{
     [self.bottomOverlayView setBackgroundColor:backgroundColor];
@@ -235,24 +258,24 @@ static inline UIImage *loadImageWithName(NSString *name) {
 
 - (void)updateTopOverlayFrame:(CGRect)frame{
     self.topOverlayView.frame = frame;
-    CGFloat y = frame.size.height - kTopViewHeight();
+    CGFloat y = frame.size.height - smallButtonSize;
     CGFloat i = 0;
-    self.switchFlashlightButton.frame = CGRectMake(i++ * (kTopViewHeight() + margin), y, kTopViewHeight(), kTopViewHeight());
-    self.changeAspectRatioButton.frame = CGRectMake(i++ * (kTopViewHeight() + margin), y, kTopViewHeight(), kTopViewHeight());
+    self.switchFlashlightButton.frame = CGRectMake(i++ * (smallButtonSize + margin), y, smallButtonSize, smallButtonSize);
+    self.changeAspectRatioButton.frame = CGRectMake(i++ * (smallButtonSize + margin), y, smallButtonSize, smallButtonSize);
     
     CGRect previewFrame = frame;
-    previewFrame.size.height = kTopViewHeight();
+    previewFrame.size.height = smallButtonSize;
     previewFrame.size.width = previewFrame.size.height * 3 / 4;
-    previewFrame.origin.y = 0;
+    previewFrame.origin.y = y;
     previewFrame.origin.x = frame.size.width - previewFrame.size.width;
     self.previewButton.frame = previewFrame;
 }
 
 - (void)updateBottomOverlayFrame:(CGRect)frame{
     // bottom
-    CGFloat offset = frame.size.height - kMinHeight;
+    CGFloat offset = frame.size.height - kMinHeight();
     if (offset < 0) {
-        frame.size.height = kMinHeight;
+        frame.size.height = kMinHeight();
         frame.origin.y += offset;
     }
     currentBottomHeight = frame.size.height;
@@ -260,8 +283,8 @@ static inline UIImage *loadImageWithName(NSString *name) {
     // layout shutter button
     CGRect tmpFrame = self.shutterButton.frame;
     tmpFrame.origin.x = 0.5 * (frame.size.width - tmpFrame.size.width);
-    CGFloat marginToBottom = MIN(0.5 * (frame.size.height - tmpFrame.size.height), kBottomSafeMargin());
-    tmpFrame.origin.y = frame.size.height - marginToBottom - tmpFrame.size.height;
+    tmpFrame.origin.y = frame.size.height - tmpFrame.size.height - kBottomSafeMargin();
+    offset = tmpFrame.origin.y - kBottomSafeMargin();
     
     self.shutterButton.frame = tmpFrame;
     // layout dismiss button
@@ -282,13 +305,14 @@ static inline UIImage *loadImageWithName(NSString *name) {
     if (imageName.length) {
         [btn setImage:loadImageWithName(imageName) forState:UIControlStateNormal];
     }
-    [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(sendButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [targetView addSubview:btn];
     return btn;
 }
 
+#pragma mark - public func
 
-- (void)btnAction:(UIButton *)sender{
+- (void)sendButtonAction:(UIButton *)sender{
     if ([sender isEqual:self.dismissButton]) { // 关闭按钮
         if ([self.delegate respondsToSelector:@selector(overlayViewDidTappedDismissButton:)]) {
             [self.delegate overlayViewDidTappedDismissButton:sender];
@@ -308,34 +332,22 @@ static inline UIImage *loadImageWithName(NSString *name) {
         }
     } else if ([sender isEqual:self.switchFlashlightButton]) { // 开关闪光灯
         if (sender.tag == AVCaptureFlashModeAuto) {
-            sender.tag = AVCaptureFlashModeOff;
-            [sender setImage:loadImageWithName(@"flashlight_off") forState:UIControlStateNormal];
+            [self setFlashMode:AVCaptureFlashModeOff];
         } else if (sender.tag == AVCaptureFlashModeOff) {
-            sender.tag = AVCaptureFlashModeOn;
-            [sender setImage:loadImageWithName(@"flashlight_on") forState:UIControlStateNormal];
+            [self setFlashMode:AVCaptureFlashModeOn];
         } else if (sender.tag == AVCaptureFlashModeOn) {
-            sender.tag = AVCaptureFlashModeAuto;
-            [sender setImage:loadImageWithName(@"flashlight_auto") forState:UIControlStateNormal];
-        }
-        if ([self.delegate respondsToSelector:@selector(overlayViewDidChangeFlashMode:)]) {
-            [self.delegate overlayViewDidChangeFlashMode:sender.tag];
+            [self setFlashMode:AVCaptureFlashModeAuto];
         }
     } else if ([sender isEqual:self.changeAspectRatioButton]) { // 改变比例
         if (sender.tag == CameraOverlayViewAspectRatio1_1) {
-            sender.tag = CameraOverlayViewAspectRatio4_3;
-            [sender setImage:loadImageWithName(@"aspect_4_3") forState:UIControlStateNormal];
+            [self setAspectRatio:CameraOverlayViewAspectRatio4_3];
         } else if (sender.tag == CameraOverlayViewAspectRatio4_3) {
-            sender.tag = CameraOverlayViewAspectRatio16_9;
-            [sender setImage:loadImageWithName(@"aspect_16_9") forState:UIControlStateNormal];
+            [self setAspectRatio:CameraOverlayViewAspectRatio16_9];
         } else if (sender.tag == CameraOverlayViewAspectRatio16_9) {
-            sender.tag = CameraOverlayViewAspectRatioFill;
-            [sender setImage:loadImageWithName(@"aspect_fill") forState:UIControlStateNormal];
+            [self setAspectRatio:CameraOverlayViewAspectRatioFill];
         } else if (sender.tag == CameraOverlayViewAspectRatioFill) {
-            sender.tag = CameraOverlayViewAspectRatio1_1;
-            [sender setImage:loadImageWithName(@"aspect_1_1") forState:UIControlStateNormal];
+            [self setAspectRatio:CameraOverlayViewAspectRatio1_1];
         }
-        [self updatePreviewLayerFrameWithAspectRatio:sender.tag];
-        
     } else if ([sender isEqual:self.previewButton]) { // 预览
         NSURL *photoLibrary = [NSURL URLWithString:@"photos-redirect://"];
         if ([[UIApplication sharedApplication] canOpenURL:photoLibrary]) {
@@ -343,7 +355,77 @@ static inline UIImage *loadImageWithName(NSString *name) {
         }
     }
 }
-
+- (void)setAspectRatio:(CameraOverlayViewAspectRatio)aspectRatio{
+    _aspectRatio = aspectRatio;
+    self.changeAspectRatioButton.tag = aspectRatio;
+    switch (aspectRatio) {
+        case CameraOverlayViewAspectRatio1_1:
+            [self.changeAspectRatioButton setImage:loadImageWithName(@"aspect_1_1") forState:UIControlStateNormal];
+            break;
+        case CameraOverlayViewAspectRatio4_3:
+            [self.changeAspectRatioButton setImage:loadImageWithName(@"aspect_4_3") forState:UIControlStateNormal];
+            break;
+        case CameraOverlayViewAspectRatio16_9:
+            [self.changeAspectRatioButton setImage:loadImageWithName(@"aspect_16_9") forState:UIControlStateNormal];
+            break;
+        case CameraOverlayViewAspectRatioFill:
+            [self.changeAspectRatioButton setImage:loadImageWithName(@"aspect_fill") forState:UIControlStateNormal];
+            break;
+    }
+    
+    // update frame
+    CGRect frame = self.frame;
+    CGFloat width = frame.size.width;
+    CGFloat height = width;
+    CGFloat y = frame.origin.y;
+    switch (aspectRatio) {
+        case CameraOverlayViewAspectRatio1_1:
+            height = width;
+            y = 0.5 * (self.frame.size.height - height - kTopViewHeight() - kBottomViewHeight()) + kTopViewHeight();
+            break;
+        case CameraOverlayViewAspectRatio4_3:
+            height = width * 4 / 3;
+            y = kTopViewHeight();
+            break;
+        case CameraOverlayViewAspectRatio16_9:
+            height = width * 16 / 9;
+            break;
+        case CameraOverlayViewAspectRatioFill:
+            height = self.frame.size.height;
+            break;
+    }
+    CGFloat offset = y + height - (frame.size.height - kMinHeight());
+    if (offset < kMinHeight() && offset > 0) {
+        y = 0;
+    }
+    frame = CGRectMake(0, y, width, height);
+    _previewFrame = frame;
+    [UIView animateWithDuration:0.18 animations:^{
+        [self updateBottomOverlayFrame:CGRectMake(0, height + frame.origin.y, width, self.frame.size.height - height - y)];
+    }];
+    if ([self.delegate respondsToSelector:@selector(overlayViewDidChangeAspectRatio:)]) {
+        [self.delegate overlayViewDidChangeAspectRatio:aspectRatio];
+    }
+}
+- (void)setFlashMode:(AVCaptureFlashMode)flashMode{
+    _flashMode = flashMode;
+    
+    self.switchFlashlightButton.tag = flashMode;
+    switch (flashMode) {
+        case AVCaptureFlashModeOff:
+            [self.switchFlashlightButton setImage:loadImageWithName(@"flashlight_off") forState:UIControlStateNormal];
+            break;
+           case AVCaptureFlashModeOn:
+            [self.switchFlashlightButton setImage:loadImageWithName(@"flashlight_on") forState:UIControlStateNormal];
+            break;
+        case AVCaptureFlashModeAuto:
+            [self.switchFlashlightButton setImage:loadImageWithName(@"flashlight_auto") forState:UIControlStateNormal];
+            break;
+    }
+    if ([self.delegate respondsToSelector:@selector(overlayViewDidChangeFlashMode:)]) {
+        [self.delegate overlayViewDidChangeFlashMode:flashMode];
+    }
+}
 
 - (void)updateUIWithDeviceOrientation{
     UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
@@ -367,43 +449,16 @@ static inline UIImage *loadImageWithName(NSString *name) {
     }];
 }
 
-- (void)updatePreviewLayerFrameWithAspectRatio:(CameraOverlayViewAspectRatio)aspectRatio{
-    CGRect frame = self.frame;
-    CGFloat width = frame.size.width;
-    CGFloat height = width;
-    CGFloat y = frame.origin.y;
-    switch (aspectRatio) {
-        case CameraOverlayViewAspectRatio1_1:
-            height = width;
-            y = 0.5 * (self.frame.size.height - height - kTopViewHeight() - kBottomViewHeight()) + kTopViewHeight();
-            break;
-        case CameraOverlayViewAspectRatio4_3:
-            height = width * 4 / 3;
-            y = kTopViewHeight();
-            break;
-        case CameraOverlayViewAspectRatio16_9:
-            height = width * 16 / 9;
-            break;
-        case CameraOverlayViewAspectRatioFill:
-            height = self.frame.size.height;
-            break;
-    }
-    CGFloat offset = y + height - (frame.size.height - kMinHeight);
-    if (offset < kMinHeight && offset > 0) {
-        y = 0;
-    }
-    frame = CGRectMake(0, y, width, height);
-    _previewFrame = frame;
-    [UIView animateWithDuration:0.18 animations:^{
-        [self updateBottomOverlayFrame:CGRectMake(0, height + frame.origin.y, width, self.frame.size.height - height - y)];
-    }];
-    if ([self.delegate respondsToSelector:@selector(overlayViewDidChangeAspectRatio:)]) {
-        [self.delegate overlayViewDidChangeAspectRatio:aspectRatio];
-    }
-}
-#pragma mark 点击手势：对焦
+
+
+#pragma mark - priv
+
 - (void)focusGesture:(UITapGestureRecognizer *)sender{
     CGPoint point = [sender locationInView:sender.view];
+    if (!CGRectContainsPoint(self.previewFrame, point)) {
+        // 点击在预览区外面不作处理
+        return;
+    }
     self.focusView.center = point;
     self.focusView.hidden = NO;
     [UIView animateWithDuration:0.3 animations:^{
@@ -422,9 +477,6 @@ static inline UIImage *loadImageWithName(NSString *name) {
     }
     
 }
-
-
-#pragma mark - priv
 
 
 
