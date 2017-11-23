@@ -34,8 +34,6 @@
 		CD755F151F9765690029D024 /* AXCameraKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CD755F131F9765690029D024 /* AXCameraKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CD755F181F9765690029D024 /* AXCameraKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD755F111F9765690029D024 /* AXCameraKit.framework */; };
 		CD755F191F9765690029D024 /* AXCameraKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CD755F111F9765690029D024 /* AXCameraKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CD755F291F9766DC0029D024 /* UIViewController+AXCameraExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = CD755F271F9766DC0029D024 /* UIViewController+AXCameraExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CD755F2A1F9766DC0029D024 /* UIViewController+AXCameraExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CD755F281F9766DC0029D024 /* UIViewController+AXCameraExtension.m */; };
 		CD755F2D1F9769800029D024 /* AXCameraOverlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = CD755F2B1F9769800029D024 /* AXCameraOverlayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CD755F2E1F9769800029D024 /* AXCameraOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD755F2C1F9769800029D024 /* AXCameraOverlayView.m */; };
 /* End PBXBuildFile section */
@@ -83,8 +81,6 @@
 		CD755F131F9765690029D024 /* AXCameraKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AXCameraKit.h; sourceTree = "<group>"; };
 		CD755F141F9765690029D024 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD755F1E1F9765C10029D024 /* AXCameraKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AXCameraKit.bundle; sourceTree = "<group>"; };
-		CD755F271F9766DC0029D024 /* UIViewController+AXCameraExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AXCameraExtension.h"; sourceTree = "<group>"; };
-		CD755F281F9766DC0029D024 /* UIViewController+AXCameraExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AXCameraExtension.m"; sourceTree = "<group>"; };
 		CD755F2B1F9769800029D024 /* AXCameraOverlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AXCameraOverlayView.h; sourceTree = "<group>"; };
 		CD755F2C1F9769800029D024 /* AXCameraOverlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AXCameraOverlayView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,8 +148,6 @@
 				CD3A8EFE1FC41E9100177ADC /* AXCameraViewController.m */,
 				CD755F2B1F9769800029D024 /* AXCameraOverlayView.h */,
 				CD755F2C1F9769800029D024 /* AXCameraOverlayView.m */,
-				CD755F271F9766DC0029D024 /* UIViewController+AXCameraExtension.h */,
-				CD755F281F9766DC0029D024 /* UIViewController+AXCameraExtension.m */,
 				CD755F1E1F9765C10029D024 /* AXCameraKit.bundle */,
 				CD755F141F9765690029D024 /* Info.plist */,
 			);
@@ -170,7 +164,6 @@
 				CD755F151F9765690029D024 /* AXCameraKit.h in Headers */,
 				CD755F2D1F9769800029D024 /* AXCameraOverlayView.h in Headers */,
 				CD3A8EFF1FC41E9100177ADC /* AXCameraViewController.h in Headers */,
-				CD755F291F9766DC0029D024 /* UIViewController+AXCameraExtension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +305,6 @@
 			files = (
 				CD755F2E1F9769800029D024 /* AXCameraOverlayView.m in Sources */,
 				CD3A8F001FC41E9100177ADC /* AXCameraViewController.m in Sources */,
-				CD755F2A1F9766DC0029D024 /* UIViewController+AXCameraExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

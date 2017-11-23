@@ -28,9 +28,14 @@
     CGRect frame = vc.overlayView.frame;
     frame.size.height -= 49;
     vc.overlayView.frame = frame;
-    [self presentViewController:vc animated:YES completion:^{
-        
-    }];
+    if (sender.tag == 0) {
+        [self presentViewController:vc animated:YES completion:^{
+            
+        }];
+    } else if (sender.tag == 1) {
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 

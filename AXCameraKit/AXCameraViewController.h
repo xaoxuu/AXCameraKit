@@ -31,4 +31,6 @@
 - (void)switchFlashlight;
 
 
+
+
 @end
