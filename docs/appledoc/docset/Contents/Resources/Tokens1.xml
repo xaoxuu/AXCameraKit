@@ -13,110 +13,535 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setDismiss:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/sendButtonAction:</TokenIdentifier>
+			<Abstract type="html">发送按钮事件</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>- (void)sendButtonAction:(UIButton *)sender</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>sender</Name>
+					<Abstract type="html">按钮</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/sendButtonAction:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/updateUIWithDeviceOrientation</TokenIdentifier>
+			<Abstract type="html">根据屏幕方向更新UI</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>- (void)updateUIWithDeviceOrientation</Declaration>
+			
+			
+			<Anchor>//api/name/updateUIWithDeviceOrientation</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setDelegate:</TokenIdentifier>
+			<Abstract type="html">delegate</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) NSObject&lt;AXCameraOverlayViewDelegate&gt; *delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/delegate</TokenIdentifier>
+			<Abstract type="html">delegate</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) NSObject&lt;AXCameraOverlayViewDelegate&gt; *delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/delegate</TokenIdentifier>
+			<Abstract type="html">delegate</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) NSObject&lt;AXCameraOverlayViewDelegate&gt; *delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setSwitchFlashlightButton:</TokenIdentifier>
+			<Abstract type="html">闪光灯</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIButton *switchFlashlightButton</Declaration>
+			
+			
+			<Anchor>//api/name/switchFlashlightButton</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/switchFlashlightButton</TokenIdentifier>
+			<Abstract type="html">闪光灯</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIButton *switchFlashlightButton</Declaration>
+			
+			
+			<Anchor>//api/name/switchFlashlightButton</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/switchFlashlightButton</TokenIdentifier>
+			<Abstract type="html">闪光灯</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIButton *switchFlashlightButton</Declaration>
+			
+			
+			<Anchor>//api/name/switchFlashlightButton</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setDismissButton:</TokenIdentifier>
 			<Abstract type="html">dismiss按钮，用于退出相机页面</Abstract>
 			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
 			
-			<Declaration>@property (strong, nonatomic) UIButton *dismiss</Declaration>
+			<Declaration>@property (strong, nonatomic) UIButton *dismissButton</Declaration>
 			
 			
-			<Anchor>//api/name/dismiss</Anchor>
+			<Anchor>//api/name/dismissButton</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/dismiss</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/dismissButton</TokenIdentifier>
 			<Abstract type="html">dismiss按钮，用于退出相机页面</Abstract>
 			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
 			
-			<Declaration>@property (strong, nonatomic) UIButton *dismiss</Declaration>
+			<Declaration>@property (strong, nonatomic) UIButton *dismissButton</Declaration>
 			
 			
-			<Anchor>//api/name/dismiss</Anchor>
+			<Anchor>//api/name/dismissButton</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/dismiss</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/dismissButton</TokenIdentifier>
 			<Abstract type="html">dismiss按钮，用于退出相机页面</Abstract>
 			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
 			
-			<Declaration>@property (strong, nonatomic) UIButton *dismiss</Declaration>
+			<Declaration>@property (strong, nonatomic) UIButton *dismissButton</Declaration>
 			
 			
-			<Anchor>//api/name/dismiss</Anchor>
+			<Anchor>//api/name/dismissButton</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setShutter:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setChangeAspectRatioButton:</TokenIdentifier>
+			<Abstract type="html">改变长宽比按钮</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIButton *changeAspectRatioButton</Declaration>
+			
+			
+			<Anchor>//api/name/changeAspectRatioButton</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/changeAspectRatioButton</TokenIdentifier>
+			<Abstract type="html">改变长宽比按钮</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIButton *changeAspectRatioButton</Declaration>
+			
+			
+			<Anchor>//api/name/changeAspectRatioButton</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/changeAspectRatioButton</TokenIdentifier>
+			<Abstract type="html">改变长宽比按钮</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIButton *changeAspectRatioButton</Declaration>
+			
+			
+			<Anchor>//api/name/changeAspectRatioButton</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setShutterButton:</TokenIdentifier>
 			<Abstract type="html">快门按钮，用于拍照</Abstract>
 			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
 			
-			<Declaration>@property (strong, nonatomic) UIButton *shutter</Declaration>
+			<Declaration>@property (strong, nonatomic) UIButton *shutterButton</Declaration>
 			
 			
-			<Anchor>//api/name/shutter</Anchor>
+			<Anchor>//api/name/shutterButton</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/shutter</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/shutterButton</TokenIdentifier>
 			<Abstract type="html">快门按钮，用于拍照</Abstract>
 			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
 			
-			<Declaration>@property (strong, nonatomic) UIButton *shutter</Declaration>
+			<Declaration>@property (strong, nonatomic) UIButton *shutterButton</Declaration>
 			
 			
-			<Anchor>//api/name/shutter</Anchor>
+			<Anchor>//api/name/shutterButton</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/shutter</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/shutterButton</TokenIdentifier>
 			<Abstract type="html">快门按钮，用于拍照</Abstract>
 			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
 			
-			<Declaration>@property (strong, nonatomic) UIButton *shutter</Declaration>
+			<Declaration>@property (strong, nonatomic) UIButton *shutterButton</Declaration>
 			
 			
-			<Anchor>//api/name/shutter</Anchor>
+			<Anchor>//api/name/shutterButton</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setSwitchCamera:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setSwitchCameraDeviceButton:</TokenIdentifier>
 			<Abstract type="html">切换前后摄像头按钮</Abstract>
 			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
 			
-			<Declaration>@property (strong, nonatomic) UIButton *switchCamera</Declaration>
+			<Declaration>@property (strong, nonatomic) UIButton *switchCameraDeviceButton</Declaration>
 			
 			
-			<Anchor>//api/name/switchCamera</Anchor>
+			<Anchor>//api/name/switchCameraDeviceButton</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/switchCamera</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/switchCameraDeviceButton</TokenIdentifier>
 			<Abstract type="html">切换前后摄像头按钮</Abstract>
 			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
 			
-			<Declaration>@property (strong, nonatomic) UIButton *switchCamera</Declaration>
+			<Declaration>@property (strong, nonatomic) UIButton *switchCameraDeviceButton</Declaration>
 			
 			
-			<Anchor>//api/name/switchCamera</Anchor>
+			<Anchor>//api/name/switchCameraDeviceButton</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/switchCamera</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/switchCameraDeviceButton</TokenIdentifier>
 			<Abstract type="html">切换前后摄像头按钮</Abstract>
 			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
 			
-			<Declaration>@property (strong, nonatomic) UIButton *switchCamera</Declaration>
+			<Declaration>@property (strong, nonatomic) UIButton *switchCameraDeviceButton</Declaration>
 			
 			
-			<Anchor>//api/name/switchCamera</Anchor>
+			<Anchor>//api/name/switchCameraDeviceButton</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setPreviewButton:</TokenIdentifier>
+			<Abstract type="html">预览照片按钮</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIButton *previewButton</Declaration>
+			
+			
+			<Anchor>//api/name/previewButton</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/previewButton</TokenIdentifier>
+			<Abstract type="html">预览照片按钮</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIButton *previewButton</Declaration>
+			
+			
+			<Anchor>//api/name/previewButton</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/previewButton</TokenIdentifier>
+			<Abstract type="html">预览照片按钮</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIButton *previewButton</Declaration>
+			
+			
+			<Anchor>//api/name/previewButton</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setEnablePreview:</TokenIdentifier>
+			<Abstract type="html">设置是否显示缩略图预览，默认为否</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (assign, getter=isEnablePreview, nonatomic) BOOL enablePreview</Declaration>
+			
+			
+			<Anchor>//api/name/enablePreview</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/isEnablePreview</TokenIdentifier>
+			<Abstract type="html">设置是否显示缩略图预览，默认为否</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (assign, getter=isEnablePreview, nonatomic) BOOL enablePreview</Declaration>
+			
+			
+			<Anchor>//api/name/enablePreview</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/enablePreview</TokenIdentifier>
+			<Abstract type="html">设置是否显示缩略图预览，默认为否</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (assign, getter=isEnablePreview, nonatomic) BOOL enablePreview</Declaration>
+			
+			
+			<Anchor>//api/name/enablePreview</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setPreviewFrame:</TokenIdentifier>
+			<Abstract type="html">获取预览层的frame</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (assign, readonly, nonatomic) CGRect previewFrame</Declaration>
+			
+			
+			<Anchor>//api/name/previewFrame</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/previewFrame</TokenIdentifier>
+			<Abstract type="html">获取预览层的frame</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (assign, readonly, nonatomic) CGRect previewFrame</Declaration>
+			
+			
+			<Anchor>//api/name/previewFrame</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/previewFrame</TokenIdentifier>
+			<Abstract type="html">获取预览层的frame</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (assign, readonly, nonatomic) CGRect previewFrame</Declaration>
+			
+			
+			<Anchor>//api/name/previewFrame</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setFlashMode:</TokenIdentifier>
+			<Abstract type="html">闪光灯模式</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) AVCaptureFlashMode flashMode</Declaration>
+			
+			
+			<Anchor>//api/name/flashMode</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/flashMode</TokenIdentifier>
+			<Abstract type="html">闪光灯模式</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) AVCaptureFlashMode flashMode</Declaration>
+			
+			
+			<Anchor>//api/name/flashMode</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/flashMode</TokenIdentifier>
+			<Abstract type="html">闪光灯模式</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) AVCaptureFlashMode flashMode</Declaration>
+			
+			
+			<Anchor>//api/name/flashMode</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setAspectRatio:</TokenIdentifier>
+			<Abstract type="html">长宽比</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) CameraOverlayViewAspectRatio aspectRatio</Declaration>
+			
+			
+			<Anchor>//api/name/aspectRatio</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/aspectRatio</TokenIdentifier>
+			<Abstract type="html">长宽比</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) CameraOverlayViewAspectRatio aspectRatio</Declaration>
+			
+			
+			<Anchor>//api/name/aspectRatio</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/aspectRatio</TokenIdentifier>
+			<Abstract type="html">长宽比</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) CameraOverlayViewAspectRatio aspectRatio</Declaration>
+			
+			
+			<Anchor>//api/name/aspectRatio</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setTopOverlayView:</TokenIdentifier>
+			<Abstract type="html">顶部操作区域的图层</Abstract>
+			<DeclaredIn>AXCameraOverlayView.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIView *topOverlayView</Declaration>
+			
+			
+			<Anchor>//api/name/topOverlayView</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/topOverlayView</TokenIdentifier>
+			<Abstract type="html">顶部操作区域的图层</Abstract>
+			<DeclaredIn>AXCameraOverlayView.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIView *topOverlayView</Declaration>
+			
+			
+			<Anchor>//api/name/topOverlayView</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/topOverlayView</TokenIdentifier>
+			<Abstract type="html">顶部操作区域的图层</Abstract>
+			<DeclaredIn>AXCameraOverlayView.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIView *topOverlayView</Declaration>
+			
+			
+			<Anchor>//api/name/topOverlayView</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setBottomOverlayView:</TokenIdentifier>
+			<Abstract type="html">底部操作区域的图层</Abstract>
+			<DeclaredIn>AXCameraOverlayView.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIView *bottomOverlayView</Declaration>
+			
+			
+			<Anchor>//api/name/bottomOverlayView</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/bottomOverlayView</TokenIdentifier>
+			<Abstract type="html">底部操作区域的图层</Abstract>
+			<DeclaredIn>AXCameraOverlayView.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIView *bottomOverlayView</Declaration>
+			
+			
+			<Anchor>//api/name/bottomOverlayView</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/bottomOverlayView</TokenIdentifier>
+			<Abstract type="html">底部操作区域的图层</Abstract>
+			<DeclaredIn>AXCameraOverlayView.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIView *bottomOverlayView</Declaration>
+			
+			
+			<Anchor>//api/name/bottomOverlayView</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/setFocusView:</TokenIdentifier>
+			<Abstract type="html">对焦框</Abstract>
+			<DeclaredIn>AXCameraOverlayView.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIView *focusView</Declaration>
+			
+			
+			<Anchor>//api/name/focusView</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraOverlayView/focusView</TokenIdentifier>
+			<Abstract type="html">对焦框</Abstract>
+			<DeclaredIn>AXCameraOverlayView.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIView *focusView</Declaration>
+			
+			
+			<Anchor>//api/name/focusView</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraOverlayView/focusView</TokenIdentifier>
+			<Abstract type="html">对焦框</Abstract>
+			<DeclaredIn>AXCameraOverlayView.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIView *focusView</Declaration>
+			
+			
+			<Anchor>//api/name/focusView</Anchor>
             <NodeRef refid="1"/>
 		</Token>
 		

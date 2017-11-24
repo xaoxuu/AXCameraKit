@@ -17,27 +17,27 @@ static NSString *moduleName = @"AXCameraKit";
 /**
  捕获设备
  */
-@property(nonatomic)AVCaptureDevice *cameraDdevice;
+@property (strong, nonatomic) AVCaptureDevice *cameraDdevice;
 
 /**
  输入设备
  */
-@property(nonatomic)AVCaptureDeviceInput *input;
+@property (strong, nonatomic) AVCaptureDeviceInput *input;
 
 /**
  图像输出
  */
-@property (nonatomic)AVCaptureStillImageOutput *imageOutput;
+@property (strong, nonatomic) AVCaptureStillImageOutput *imageOutput;
 
 /**
  捕获回话，将输入输出结合
  */
-@property(nonatomic)AVCaptureSession *captureSession;
+@property (strong, nonatomic) AVCaptureSession *captureSession;
 
 /**
  图像预览层，实时显示捕获的图像
  */
-@property(nonatomic)AVCaptureVideoPreviewLayer *previewLayer;
+@property (strong, nonatomic) AVCaptureVideoPreviewLayer *previewLayer;
 
 
 /**
@@ -420,9 +420,6 @@ static NSString *moduleName = @"AXCameraKit";
 
 
 
-/**
- 根据屏幕方向更新UI
- */
 - (void)deviceOrientationDidChanged{
     [self.overlayView updateUIWithDeviceOrientation];
 }

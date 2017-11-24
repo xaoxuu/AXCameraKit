@@ -12,27 +12,18 @@
 					<Path>index.html</Path>
 					<Subnodes>
 						<NodeRef refid="1"/>
-						
-					</Subnodes>
-				</Node>
-				
-				
-				<Node>
-					<Name>Categories</Name>
-					<Path>index.html</Path>
-					<Subnodes>
 						<NodeRef refid="2"/>
-						<NodeRef refid="3"/>
 						
 					</Subnodes>
 				</Node>
+				
 				
                 
 				<Node>
 					<Name>Protocols</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="4"/>
+						<NodeRef refid="3"/>
 						
 					</Subnodes>
 				</Node>
@@ -42,20 +33,12 @@
 					<Name>Constants</Name>
 					<Path>index.html</Path>
 					<Subnodes>
+						<NodeRef refid="4"/>
 						<NodeRef refid="5"/>
 						
 					</Subnodes>
 				</Node>
 				
-                
-                <Node>
-                    <Name>Blocks</Name>
-                    <Path>index.html</Path>
-                    <Subnodes>
-                        <NodeRef refid="6"/>
-                        
-                    </Subnodes>
-                </Node>
                 
 			</Subnodes>
         </Node>
@@ -86,49 +69,62 @@
                 
                 
                 
+                <Node type="section">
+                    <Path>Classes/AXCameraOverlayView.html</Path>
+                    <Name>Instance Methods</Name>
+                    <Anchor>instance_methods</Anchor>
+                </Node>
+                
             </Subnodes>
             
         </Node>
-		
 		<Node id="2" type="file" documentType="reference">
-            <Name>UIViewController()</Name>
-            <Path>Categories/UIViewController+.html</Path>
+            <Name>AXCameraViewController</Name>
+            <Path>Classes/AXCameraViewController.html</Path>
             
                 <Subnodes>
                 <Node type="section">
-                    <Path>Categories/UIViewController+.html</Path>
+                    <Path>Classes/AXCameraViewController.html</Path>
                     <Name>Overview</Name>
                     <Anchor>overview</Anchor>
                 </Node>
                 <Node type="section">
-                    <Path>Categories/UIViewController+.html</Path>
+                    <Path>Classes/AXCameraViewController.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
                 </Node>
                 
                 <Node type="section">
-                    <Path>Categories/UIViewController+.html</Path>
+                    <Path>Classes/AXCameraViewController.html</Path>
                     <Name>Properties</Name>
                     <Anchor>properties</Anchor>
                 </Node>
                 
                 
                 
+                <Node type="section">
+                    <Path>Classes/AXCameraViewController.html</Path>
+                    <Name>Instance Methods</Name>
+                    <Anchor>instance_methods</Anchor>
+                </Node>
+                
             </Subnodes>
             
         </Node>
-		<Node id="3" type="file" documentType="reference">
-            <Name>UIViewController(AXCameraExtension)</Name>
-            <Path>Categories/UIViewController+AXCameraExtension.html</Path>
+		
+		
+        <Node id="3" type="file" documentType="reference">
+            <Name>AXCameraOverlayViewDelegate</Name>
+            <Path>Protocols/AXCameraOverlayViewDelegate.html</Path>
             
                 <Subnodes>
                 <Node type="section">
-                    <Path>Categories/UIViewController+AXCameraExtension.html</Path>
+                    <Path>Protocols/AXCameraOverlayViewDelegate.html</Path>
                     <Name>Overview</Name>
                     <Anchor>overview</Anchor>
                 </Node>
                 <Node type="section">
-                    <Path>Categories/UIViewController+AXCameraExtension.html</Path>
+                    <Path>Protocols/AXCameraOverlayViewDelegate.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
                 </Node>
@@ -136,7 +132,7 @@
                 
                 
                 <Node type="section">
-                    <Path>Categories/UIViewController+AXCameraExtension.html</Path>
+                    <Path>Protocols/AXCameraOverlayViewDelegate.html</Path>
                     <Name>Instance Methods</Name>
                     <Anchor>instance_methods</Anchor>
                 </Node>
@@ -146,44 +142,16 @@
         </Node>
 		
         <Node id="4" type="file" documentType="reference">
-            <Name>AXCameraKit</Name>
-            <Path>Protocols/AXCameraKit.html</Path>
+            <Name>CameraOverlayViewAspectRatio</Name>
+            <Path>Constants/CameraOverlayViewAspectRatio.html</Path>
             
-                <Subnodes>
-                <Node type="section">
-                    <Path>Protocols/AXCameraKit.html</Path>
-                    <Name>Overview</Name>
-                    <Anchor>overview</Anchor>
-                </Node>
-                <Node type="section">
-                    <Path>Protocols/AXCameraKit.html</Path>
-                    <Name>Tasks</Name>
-                    <Anchor>tasks</Anchor>
-                </Node>
-                
-                
-                
-                <Node type="section">
-                    <Path>Protocols/AXCameraKit.html</Path>
-                    <Name>Instance Methods</Name>
-                    <Anchor>instance_methods</Anchor>
-                </Node>
-                
-            </Subnodes>
+        </Node>
+		<Node id="5" type="file" documentType="reference">
+            <Name>CameraOverlayViewFlashlightButtonState</Name>
+            <Path>Constants/CameraOverlayViewFlashlightButtonState.html</Path>
             
         </Node>
 		
-        <Node id="5" type="file" documentType="reference">
-            <Name>CameraOverlayButton</Name>
-            <Path>Constants/CameraOverlayButton.html</Path>
-            
-        </Node>
-		
-        <Node id="6" type="file" documentType="reference">
-            <Name>BlockType</Name>
-            <Path>Blocks/BlockType.html</Path>
-            
-        </Node>
         
 	</Library>
 </DocSetNodes>

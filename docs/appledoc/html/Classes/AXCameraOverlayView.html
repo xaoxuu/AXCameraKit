@@ -56,17 +56,47 @@
 	
 	<optgroup label="Properties">
 		
-		<option value="//api/name/dismiss">dismiss</option>
+		<option value="//api/name/aspectRatio">aspectRatio</option>
 		
-		<option value="//api/name/shutter">shutter</option>
+		<option value="//api/name/bottomOverlayView">bottomOverlayView</option>
 		
-		<option value="//api/name/switchCamera">switchCamera</option>
+		<option value="//api/name/changeAspectRatioButton">changeAspectRatioButton</option>
+		
+		<option value="//api/name/delegate">delegate</option>
+		
+		<option value="//api/name/dismissButton">dismissButton</option>
+		
+		<option value="//api/name/enablePreview">enablePreview</option>
+		
+		<option value="//api/name/flashMode">flashMode</option>
+		
+		<option value="//api/name/focusView">focusView</option>
+		
+		<option value="//api/name/previewButton">previewButton</option>
+		
+		<option value="//api/name/previewFrame">previewFrame</option>
+		
+		<option value="//api/name/shutterButton">shutterButton</option>
+		
+		<option value="//api/name/switchCameraDeviceButton">switchCameraDeviceButton</option>
+		
+		<option value="//api/name/switchFlashlightButton">switchFlashlightButton</option>
+		
+		<option value="//api/name/topOverlayView">topOverlayView</option>
 		
 	</optgroup>
 	
 
 	
 
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/sendButtonAction:">- sendButtonAction:</option>
+		
+		<option value="//api/name/updateUIWithDeviceOrientation">- updateUIWithDeviceOrientation</option>
+		
+	</optgroup>
 	
 	
 </select>
@@ -112,12 +142,12 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/dismiss" title="dismiss"></a>
-	<h3 class="method-title"><code><a href="#//api/name/dismiss">&nbsp;&nbsp;dismiss</a></code>
+	<a name="//api/name/sendButtonAction:" title="sendButtonAction:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sendButtonAction:">&ndash;&nbsp;sendButtonAction:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -127,14 +157,26 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>dismiss按钮，用于退出相机页面</p>
+				<p>发送按钮事件</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) UIButton *dismiss</code></div>
+			<div class="method-subsection method-declaration"><code>- (void)sendButtonAction:(UIButton *)<em>sender</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sender</code></th>
+						<td><p>按钮</p></td>
+					</tr>
+				
+				</table>
+			</div>
 			
 
 			
@@ -157,8 +199,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/shutter" title="shutter"></a>
-	<h3 class="method-title"><code><a href="#//api/name/shutter">&nbsp;&nbsp;shutter</a></code>
+	<a name="//api/name/updateUIWithDeviceOrientation" title="updateUIWithDeviceOrientation"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateUIWithDeviceOrientation">&ndash;&nbsp;updateUIWithDeviceOrientation</a></code>
 </h3>
 
 	<div class="method-info">
@@ -168,53 +210,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>快门按钮，用于拍照</p>
+				<p>根据屏幕方向更新UI</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) UIButton *shutter</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AXCameraOverlayView.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/switchCamera" title="switchCamera"></a>
-	<h3 class="method-title"><code><a href="#//api/name/switchCamera">&nbsp;&nbsp;switchCamera</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>切换前后摄像头按钮</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) UIButton *switchCamera</code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateUIWithDeviceOrientation</code></div>
 
 		    
 			
@@ -241,6 +242,596 @@
 </div>
 						</div>
 						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>delegate</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (weak, nonatomic) NSObject&lt;AXCameraOverlayViewDelegate&gt; *delegate</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AXCameraOverlayView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/switchFlashlightButton" title="switchFlashlightButton"></a>
+	<h3 class="method-title"><code><a href="#//api/name/switchFlashlightButton">&nbsp;&nbsp;switchFlashlightButton</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>闪光灯</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) UIButton *switchFlashlightButton</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AXCameraOverlayView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/dismissButton" title="dismissButton"></a>
+	<h3 class="method-title"><code><a href="#//api/name/dismissButton">&nbsp;&nbsp;dismissButton</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>dismiss按钮，用于退出相机页面</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) UIButton *dismissButton</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AXCameraOverlayView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/changeAspectRatioButton" title="changeAspectRatioButton"></a>
+	<h3 class="method-title"><code><a href="#//api/name/changeAspectRatioButton">&nbsp;&nbsp;changeAspectRatioButton</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>改变长宽比按钮</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) UIButton *changeAspectRatioButton</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AXCameraOverlayView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/shutterButton" title="shutterButton"></a>
+	<h3 class="method-title"><code><a href="#//api/name/shutterButton">&nbsp;&nbsp;shutterButton</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>快门按钮，用于拍照</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) UIButton *shutterButton</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AXCameraOverlayView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/switchCameraDeviceButton" title="switchCameraDeviceButton"></a>
+	<h3 class="method-title"><code><a href="#//api/name/switchCameraDeviceButton">&nbsp;&nbsp;switchCameraDeviceButton</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>切换前后摄像头按钮</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) UIButton *switchCameraDeviceButton</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AXCameraOverlayView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/previewButton" title="previewButton"></a>
+	<h3 class="method-title"><code><a href="#//api/name/previewButton">&nbsp;&nbsp;previewButton</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>预览照片按钮</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) UIButton *previewButton</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AXCameraOverlayView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/enablePreview" title="enablePreview"></a>
+	<h3 class="method-title"><code><a href="#//api/name/enablePreview">&nbsp;&nbsp;enablePreview</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>设置是否显示缩略图预览，默认为否</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (assign, getter=isEnablePreview, nonatomic) BOOL enablePreview</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AXCameraOverlayView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/previewFrame" title="previewFrame"></a>
+	<h3 class="method-title"><code><a href="#//api/name/previewFrame">&nbsp;&nbsp;previewFrame</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>获取预览层的frame</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (assign, readonly, nonatomic) CGRect previewFrame</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AXCameraOverlayView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/flashMode" title="flashMode"></a>
+	<h3 class="method-title"><code><a href="#//api/name/flashMode">&nbsp;&nbsp;flashMode</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>闪光灯模式</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (assign, nonatomic) AVCaptureFlashMode flashMode</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AXCameraOverlayView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/aspectRatio" title="aspectRatio"></a>
+	<h3 class="method-title"><code><a href="#//api/name/aspectRatio">&nbsp;&nbsp;aspectRatio</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>长宽比</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (assign, nonatomic) CameraOverlayViewAspectRatio aspectRatio</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AXCameraOverlayView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Extension Methods" name="task_Extension Methods"></a>
+						<h2 class="task-title">Extension Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/topOverlayView" title="topOverlayView"></a>
+	<h3 class="method-title"><code><a href="#//api/name/topOverlayView">&nbsp;&nbsp;topOverlayView</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>顶部操作区域的图层</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) UIView *topOverlayView</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AXCameraOverlayView.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/bottomOverlayView" title="bottomOverlayView"></a>
+	<h3 class="method-title"><code><a href="#//api/name/bottomOverlayView">&nbsp;&nbsp;bottomOverlayView</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>底部操作区域的图层</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) UIView *bottomOverlayView</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AXCameraOverlayView.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/focusView" title="focusView"></a>
+	<h3 class="method-title"><code><a href="#//api/name/focusView">&nbsp;&nbsp;focusView</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>对焦框</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) UIView *focusView</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AXCameraOverlayView.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -253,7 +844,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2017 xaoxuu. All rights reserved. Updated: 2017-10-20</p>
+						<p class="copyright">Copyright &copy; 2017 xaoxuu. All rights reserved. Updated: 2017-11-24</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

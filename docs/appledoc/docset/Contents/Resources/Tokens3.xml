@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Categories/UIViewController+AXCameraExtension.html">
+	<File path="Protocols/AXCameraOverlayViewDelegate.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cat/UIViewController(AXCameraExtension)</TokenIdentifier>
-			<Abstract type="html">需要在哪个页面弹出相机，就在哪个页面导入此分类。
-注意：不要放到全局头文件中。</Abstract>
-			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/intf/AXCameraOverlayViewDelegate</TokenIdentifier>
+			<Abstract type="html">代理</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
             
 			
 			<NodeRef refid="3"/>
@@ -14,72 +13,104 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/UIViewController/overlayView</TokenIdentifier>
-			<Abstract type="html">overlay view</Abstract>
-			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/intfm/AXCameraOverlayViewDelegate/overlayViewDidTappedDismissButton:</TokenIdentifier>
+			<Abstract type="html">点击了Dismiss按钮</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
 			
-			<Declaration>- (AXCameraOverlayView *)overlayView</Declaration>
-			
-			
-			<Anchor>//api/name/overlayView</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/UIViewController/loadCameraVC</TokenIdentifier>
-			<Abstract type="html">加载相机，可以提前异步加载</Abstract>
-			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
-			
-			<Declaration>- (void)loadCameraVC</Declaration>
-			
-			
-			<Anchor>//api/name/loadCameraVC</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/UIViewController/presentCameraVC:</TokenIdentifier>
-			<Abstract type="html">显示相机页面</Abstract>
-			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
-			
-			<Declaration>- (void)presentCameraVC:(void ( ^ ) ( void ))completion</Declaration>
+			<Declaration>- (void)overlayViewDidTappedDismissButton:(UIButton *)sender</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>completion</Name>
-					<Abstract type="html">完成回调</Abstract>
+					<Name>sender</Name>
+					<Abstract type="html">按钮</Abstract>
 				</Parameter>
 			</Parameters>
 			
-			<Anchor>//api/name/presentCameraVC:</Anchor>
+			<Anchor>//api/name/overlayViewDidTappedDismissButton:</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/UIViewController/dismissCameraVC:</TokenIdentifier>
-			<Abstract type="html">退出相机页面</Abstract>
-			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/intfm/AXCameraOverlayViewDelegate/overlayViewDidTappedShutterButton:</TokenIdentifier>
+			<Abstract type="html">点击了拍照按钮</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
 			
-			<Declaration>- (void)dismissCameraVC:(void ( ^ ) ( void ))completion</Declaration>
+			<Declaration>- (void)overlayViewDidTappedShutterButton:(UIButton *)sender</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>completion</Name>
-					<Abstract type="html">完成回调</Abstract>
+					<Name>sender</Name>
+					<Abstract type="html">按钮</Abstract>
 				</Parameter>
 			</Parameters>
 			
-			<Anchor>//api/name/dismissCameraVC:</Anchor>
+			<Anchor>//api/name/overlayViewDidTappedShutterButton:</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/UIViewController/takePicture</TokenIdentifier>
-			<Abstract type="html">拍照</Abstract>
-			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/intfm/AXCameraOverlayViewDelegate/overlayViewDidChangeFlashMode:</TokenIdentifier>
+			<Abstract type="html">改变闪光灯模式</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
 			
-			<Declaration>- (void)takePicture</Declaration>
+			<Declaration>- (void)overlayViewDidChangeFlashMode:(AVCaptureFlashMode)mode</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>mode</Name>
+					<Abstract type="html">闪光灯模式</Abstract>
+				</Parameter>
+			</Parameters>
 			
+			<Anchor>//api/name/overlayViewDidChangeFlashMode:</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AXCameraOverlayViewDelegate/overlayViewDidSwitchCameraDevicePosition:</TokenIdentifier>
+			<Abstract type="html">切换前后摄像头</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
 			
-			<Anchor>//api/name/takePicture</Anchor>
+			<Declaration>- (void)overlayViewDidSwitchCameraDevicePosition:(AVCaptureDevicePosition)position</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>position</Name>
+					<Abstract type="html">设备位置</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/overlayViewDidSwitchCameraDevicePosition:</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AXCameraOverlayViewDelegate/overlayViewDidChangeAspectRatio:</TokenIdentifier>
+			<Abstract type="html">改变长宽比</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>- (void)overlayViewDidChangeAspectRatio:(CameraOverlayViewAspectRatio)aspectRatio</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>aspectRatio</Name>
+					<Abstract type="html">长宽比</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/overlayViewDidChangeAspectRatio:</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AXCameraOverlayViewDelegate/overlayViewDidTouchAtPoint:</TokenIdentifier>
+			<Abstract type="html">点击了某个点</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			
+			<Declaration>- (void)overlayViewDidTouchAtPoint:(CGPoint)point</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>point</Name>
+					<Abstract type="html">坐标点</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/overlayViewDidTouchAtPoint:</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		

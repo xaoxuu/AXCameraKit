@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Categories/UIViewController+.html">
+	<File path="Classes/AXCameraViewController.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cat/UIViewController()</TokenIdentifier>
-			<Abstract type="html"></Abstract>
-			<DeclaredIn>UIViewController+AXCameraExtension.m</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/AXCameraViewController</TokenIdentifier>
+			<Abstract type="html">自定义相机视图控制器</Abstract>
+			<DeclaredIn>AXCameraViewController.h</DeclaredIn>
             
 			
 			<NodeRef refid="2"/>
@@ -13,38 +13,327 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/UIViewController/setImagePicker:</TokenIdentifier>
-			<Abstract type="html">image picker</Abstract>
-			<DeclaredIn>UIViewController+AXCameraExtension.m</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraViewController/takePicture</TokenIdentifier>
+			<Abstract type="html">拍照</Abstract>
+			<DeclaredIn>AXCameraViewController.h</DeclaredIn>
 			
-			<Declaration>@property (strong, nonatomic) UIImagePickerController *imagePicker</Declaration>
+			<Declaration>- (void)takePicture</Declaration>
 			
 			
-			<Anchor>//api/name/imagePicker</Anchor>
+			<Anchor>//api/name/takePicture</Anchor>
             <NodeRef refid="2"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/UIViewController/imagePicker</TokenIdentifier>
-			<Abstract type="html">image picker</Abstract>
-			<DeclaredIn>UIViewController+AXCameraExtension.m</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraViewController/changeFlashMode</TokenIdentifier>
+			<Abstract type="html">开关闪光灯模式
+0:关, 1:开, 2:自动</Abstract>
+			<DeclaredIn>AXCameraViewController.h</DeclaredIn>
 			
-			<Declaration>@property (strong, nonatomic) UIImagePickerController *imagePicker</Declaration>
+			<Declaration>- (void)changeFlashMode</Declaration>
 			
 			
-			<Anchor>//api/name/imagePicker</Anchor>
+			<Anchor>//api/name/changeFlashMode</Anchor>
             <NodeRef refid="2"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/UIViewController/imagePicker</TokenIdentifier>
-			<Abstract type="html">image picker</Abstract>
-			<DeclaredIn>UIViewController+AXCameraExtension.m</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraViewController/switchCameraDevice</TokenIdentifier>
+			<Abstract type="html">切换前后摄像头</Abstract>
+			<DeclaredIn>AXCameraViewController.h</DeclaredIn>
 			
-			<Declaration>@property (strong, nonatomic) UIImagePickerController *imagePicker</Declaration>
+			<Declaration>- (void)switchCameraDevice</Declaration>
 			
 			
-			<Anchor>//api/name/imagePicker</Anchor>
+			<Anchor>//api/name/switchCameraDevice</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraViewController/setOverlayView:</TokenIdentifier>
+			<Abstract type="html">相机操作按钮覆盖图层</Abstract>
+			<DeclaredIn>AXCameraViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AXCameraOverlayView *overlayView</Declaration>
+			
+			
+			<Anchor>//api/name/overlayView</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraViewController/overlayView</TokenIdentifier>
+			<Abstract type="html">相机操作按钮覆盖图层</Abstract>
+			<DeclaredIn>AXCameraViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AXCameraOverlayView *overlayView</Declaration>
+			
+			
+			<Anchor>//api/name/overlayView</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraViewController/overlayView</TokenIdentifier>
+			<Abstract type="html">相机操作按钮覆盖图层</Abstract>
+			<DeclaredIn>AXCameraViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AXCameraOverlayView *overlayView</Declaration>
+			
+			
+			<Anchor>//api/name/overlayView</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraViewController/setCameraDdevice:</TokenIdentifier>
+			<Abstract type="html">捕获设备</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AVCaptureDevice *cameraDdevice</Declaration>
+			
+			
+			<Anchor>//api/name/cameraDdevice</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraViewController/cameraDdevice</TokenIdentifier>
+			<Abstract type="html">捕获设备</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AVCaptureDevice *cameraDdevice</Declaration>
+			
+			
+			<Anchor>//api/name/cameraDdevice</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraViewController/cameraDdevice</TokenIdentifier>
+			<Abstract type="html">捕获设备</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AVCaptureDevice *cameraDdevice</Declaration>
+			
+			
+			<Anchor>//api/name/cameraDdevice</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraViewController/setInput:</TokenIdentifier>
+			<Abstract type="html">输入设备</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AVCaptureDeviceInput *input</Declaration>
+			
+			
+			<Anchor>//api/name/input</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraViewController/input</TokenIdentifier>
+			<Abstract type="html">输入设备</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AVCaptureDeviceInput *input</Declaration>
+			
+			
+			<Anchor>//api/name/input</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraViewController/input</TokenIdentifier>
+			<Abstract type="html">输入设备</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AVCaptureDeviceInput *input</Declaration>
+			
+			
+			<Anchor>//api/name/input</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraViewController/setImageOutput:</TokenIdentifier>
+			<Abstract type="html">图像输出</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AVCaptureStillImageOutput *imageOutput</Declaration>
+			
+			
+			<Anchor>//api/name/imageOutput</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraViewController/imageOutput</TokenIdentifier>
+			<Abstract type="html">图像输出</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AVCaptureStillImageOutput *imageOutput</Declaration>
+			
+			
+			<Anchor>//api/name/imageOutput</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraViewController/imageOutput</TokenIdentifier>
+			<Abstract type="html">图像输出</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AVCaptureStillImageOutput *imageOutput</Declaration>
+			
+			
+			<Anchor>//api/name/imageOutput</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraViewController/setCaptureSession:</TokenIdentifier>
+			<Abstract type="html">捕获回话，将输入输出结合</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AVCaptureSession *captureSession</Declaration>
+			
+			
+			<Anchor>//api/name/captureSession</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraViewController/captureSession</TokenIdentifier>
+			<Abstract type="html">捕获回话，将输入输出结合</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AVCaptureSession *captureSession</Declaration>
+			
+			
+			<Anchor>//api/name/captureSession</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraViewController/captureSession</TokenIdentifier>
+			<Abstract type="html">捕获回话，将输入输出结合</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AVCaptureSession *captureSession</Declaration>
+			
+			
+			<Anchor>//api/name/captureSession</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraViewController/setPreviewLayer:</TokenIdentifier>
+			<Abstract type="html">图像预览层，实时显示捕获的图像</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AVCaptureVideoPreviewLayer *previewLayer</Declaration>
+			
+			
+			<Anchor>//api/name/previewLayer</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraViewController/previewLayer</TokenIdentifier>
+			<Abstract type="html">图像预览层，实时显示捕获的图像</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AVCaptureVideoPreviewLayer *previewLayer</Declaration>
+			
+			
+			<Anchor>//api/name/previewLayer</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraViewController/previewLayer</TokenIdentifier>
+			<Abstract type="html">图像预览层，实时显示捕获的图像</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AVCaptureVideoPreviewLayer *previewLayer</Declaration>
+			
+			
+			<Anchor>//api/name/previewLayer</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraViewController/setFlashlightButton:</TokenIdentifier>
+			<Abstract type="html">闪光灯</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) UIButton *flashlightButton</Declaration>
+			
+			
+			<Anchor>//api/name/flashlightButton</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraViewController/flashlightButton</TokenIdentifier>
+			<Abstract type="html">闪光灯</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) UIButton *flashlightButton</Declaration>
+			
+			
+			<Anchor>//api/name/flashlightButton</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraViewController/flashlightButton</TokenIdentifier>
+			<Abstract type="html">闪光灯</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) UIButton *flashlightButton</Declaration>
+			
+			
+			<Anchor>//api/name/flashlightButton</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraViewController/setFocusView:</TokenIdentifier>
+			<Abstract type="html">对焦框</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) UIView *focusView</Declaration>
+			
+			
+			<Anchor>//api/name/focusView</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AXCameraViewController/focusView</TokenIdentifier>
+			<Abstract type="html">对焦框</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) UIView *focusView</Declaration>
+			
+			
+			<Anchor>//api/name/focusView</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AXCameraViewController/focusView</TokenIdentifier>
+			<Abstract type="html">对焦框</Abstract>
+			<DeclaredIn>AXCameraViewController.m</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) UIView *focusView</Declaration>
+			
+			
+			<Anchor>//api/name/focusView</Anchor>
             <NodeRef refid="2"/>
 		</Token>
 		

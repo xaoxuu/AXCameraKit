@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Constants/CameraOverlayButton.html">
+	<File path="Constants/CameraOverlayViewFlashlightButtonState.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/c/tdef/CameraOverlayButton</TokenIdentifier>
-			<Abstract type="html">根据按钮的tag判断是哪个按钮</Abstract>
-			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/c/tdef/CameraOverlayViewFlashlightButtonState</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AXCameraOverlayView.m</DeclaredIn>
             
 			
 			<NodeRef refid="5"/>
@@ -14,41 +14,31 @@
 		
         
         <Token>
-            <TokenIdentifier>//apple_ref/c/econst/CameraOverlayButtonUnknown</TokenIdentifier>
+            <TokenIdentifier>//apple_ref/c/econst/CameraOverlayViewFlashlightButtonStateOff</TokenIdentifier>
             <Abstract type="html"></Abstract>
-            <Declaration>CameraOverlayButtonUnknown</Declaration>
+            <Declaration>CameraOverlayViewFlashlightButtonStateOff</Declaration>
             
-            <DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+            <DeclaredIn>AXCameraOverlayView.m</DeclaredIn>
             
             <NodeRef refid="5"/>
         </Token>
         
         <Token>
-            <TokenIdentifier>//apple_ref/c/econst/CameraOverlayButtonDismiss</TokenIdentifier>
+            <TokenIdentifier>//apple_ref/c/econst/CameraOverlayViewFlashlightButtonStateOn</TokenIdentifier>
             <Abstract type="html"></Abstract>
-            <Declaration>CameraOverlayButtonDismiss</Declaration>
+            <Declaration>CameraOverlayViewFlashlightButtonStateOn</Declaration>
             
-            <DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+            <DeclaredIn>AXCameraOverlayView.m</DeclaredIn>
             
             <NodeRef refid="5"/>
         </Token>
         
         <Token>
-            <TokenIdentifier>//apple_ref/c/econst/CameraOverlayButtonShutter</TokenIdentifier>
+            <TokenIdentifier>//apple_ref/c/econst/CameraOverlayViewFlashlightButtonStateAuto</TokenIdentifier>
             <Abstract type="html"></Abstract>
-            <Declaration>CameraOverlayButtonShutter</Declaration>
+            <Declaration>CameraOverlayViewFlashlightButtonStateAuto</Declaration>
             
-            <DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
-            
-            <NodeRef refid="5"/>
-        </Token>
-        
-        <Token>
-            <TokenIdentifier>//apple_ref/c/econst/CameraOverlayButtonSwitch</TokenIdentifier>
-            <Abstract type="html"></Abstract>
-            <Declaration>CameraOverlayButtonSwitch</Declaration>
-            
-            <DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+            <DeclaredIn>AXCameraOverlayView.m</DeclaredIn>
             
             <NodeRef refid="5"/>
         </Token>

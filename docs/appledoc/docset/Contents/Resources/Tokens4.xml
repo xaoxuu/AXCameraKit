@@ -1,58 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Protocols/AXCameraKit.html">
+	<File path="Constants/CameraOverlayViewAspectRatio.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/intf/AXCameraKit</TokenIdentifier>
-			<Abstract type="html">相机代理，用于监听相机状态。无需手动设置代理。</Abstract>
-			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/c/tdef/CameraOverlayViewAspectRatio</TokenIdentifier>
+			<Abstract type="html">相机预览层长宽比</Abstract>
+			<DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
             
 			
 			<NodeRef refid="4"/>
 		</Token>
 		
 		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/intfm/AXCameraKit/cameraDidPresented</TokenIdentifier>
-			<Abstract type="html">弹出相机页面的回调（present）</Abstract>
-			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
-			
-			<Declaration>- (void)cameraDidPresented</Declaration>
-			
-			
-			<Anchor>//api/name/cameraDidPresented</Anchor>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/CameraOverlayViewAspectRatio1_1</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>CameraOverlayViewAspectRatio1_1</Declaration>
+            
+            <DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+            
             <NodeRef refid="4"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/intfm/AXCameraKit/cameraDidDismissed</TokenIdentifier>
-			<Abstract type="html">退出相机页面的回调（dismiss）</Abstract>
-			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
-			
-			<Declaration>- (void)cameraDidDismissed</Declaration>
-			
-			
-			<Anchor>//api/name/cameraDidDismissed</Anchor>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/CameraOverlayViewAspectRatio4_3</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>CameraOverlayViewAspectRatio4_3</Declaration>
+            
+            <DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+            
             <NodeRef refid="4"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/intfm/AXCameraKit/cameraDidTakePicture:</TokenIdentifier>
-			<Abstract type="html">拍照完成的回调</Abstract>
-			<DeclaredIn>UIViewController+AXCameraExtension.h</DeclaredIn>
-			
-			<Declaration>- (void)cameraDidTakePicture:(UIImage *)image</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>image</Name>
-					<Abstract type="html">照片</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/cameraDidTakePicture:</Anchor>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/CameraOverlayViewAspectRatio16_9</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>CameraOverlayViewAspectRatio16_9</Declaration>
+            
+            <DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+            
             <NodeRef refid="4"/>
-		</Token>
-		
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/CameraOverlayViewAspectRatioFill</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>CameraOverlayViewAspectRatioFill</Declaration>
+            
+            <DeclaredIn>AXCameraOverlayView.h</DeclaredIn>
+            
+            <NodeRef refid="4"/>
+        </Token>
         
         
 	</File>
