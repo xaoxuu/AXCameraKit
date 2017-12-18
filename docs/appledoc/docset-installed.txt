@@ -1,4 +1,4 @@
 Documentation set was installed to Xcode!
 
 Path: /Users/xaoxuu/Library/Developer/Shared/Documentation/DocSets/com.xaoxuu.AXCameraKit.docset
-Time: 2017-11-24 03:49:08 +0000
+Time: 2017-12-18 07:03:44 +0000
