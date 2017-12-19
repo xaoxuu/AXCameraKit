@@ -2,11 +2,17 @@
 
 > 这是一个简单的相机模块，此模块的目的在于方便管理多个项目，使多个定制项目共用一个模块极大提高了开发效率，降低维护成本。
 
+<!-- 开源协议 -->
+[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/xaoxuu/AXCameraKit/master/LICENSE) 
+<!-- 平台 -->
+[![Carthage compatible](https://img.shields.io/badge/platform-iOS%208%2B%20-orange.svg?style=flat)](https://www.apple.com/nl/ios/) 
+<!-- 版本 -->
+[![CocoaPods](https://img.shields.io/cocoapods/v/AXCameraKit.svg?style=flat)](https://cocoapods.org/pods/AXCameraKit) 
+<!-- 下载量 -->
+[![CocoaPods](https://img.shields.io/cocoapods/dt/AXCameraKit.svg)](https://codeload.github.com/xaoxuu/AXCameraKit/zip/master) 
+<!-- 应用量 -->
+[![Support](https://img.shields.io/cocoapods/at/AXCameraKit.svg)](https://cocoapods.org/pods/AXCameraKit) 
 
-
-[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/xaoxuu/AXCameraKit/master/LICENSE) [![Support](https://img.shields.io/badge/support-iOS%208%2B%20-orange.svg?style=flat)](https://www.apple.com/nl/ios/) [![CocoaPods](http://img.shields.io/cocoapods/v/AXCameraKit.svg?style=flat)](http://cocoapods.org/?q=AXCameraKit) 
-[![](https://img.shields.io/cocoapods/dt/AXCameraKit.svg)](https://codeload.github.com/xaoxuu/AXCameraKit/zip/master)
-[![](https://img.shields.io/cocoapods/at/AXCameraKit.svg)](https://cocoapods.org/pods/AXCameraKit)
 
 
 
